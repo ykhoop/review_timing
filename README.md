@@ -67,4 +67,4 @@ https://www.figma.com/file/ras7E1fDWebodv09yrNomi/review_timing?node-id=0%3A1&t=
 ### ■ ER図
 ***
 Gyazo:  
-[![Image from Gyazo](https://i.gyazo.com/61b11aca5a942a4fa810b4fcbeed754a.png)](https://gyazo.com/61b11aca5a942a4fa810b4fcbeed754a)
+[![Image from Gyazo](https://i.gyazo.com/04672d66d4bda9c3b6a1db2fb13b6bdf.png)](https://gyazo.com/04672d66d4bda9c3b6a1db2fb13b6bdf)
