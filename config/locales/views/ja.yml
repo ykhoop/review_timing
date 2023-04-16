@@ -2,8 +2,11 @@ ja:
   defaults:
     app_name: 'Review Timing'
     login: 'ログイン'
-    register: '登録'
     logout: 'ログアウト'
+    register: '登録'
+    edit: '編集'
+    update: '更新'
+    delete: '削除'
     menu: 'メニュー'
     message:
       require_login: 'ログインしてください'
@@ -25,3 +28,9 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
+  subjects:
+    new:
+      title: '科目作成'
+    create:
+      success: '科目作成が完了しました'
+      fail: '科目作成に失敗しました'
