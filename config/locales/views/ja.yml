@@ -1,0 +1,27 @@
+ja:
+  defaults:
+    app_name: 'Review Timing'
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+    menu: 'メニュー'
+    message:
+      require_login: 'ログインしてください'
+      confirm_logout: 'ログアウトしますか？'
+  users:
+    new:
+      title: 'ユーザー登録'
+      to_login_page: 'ログインページ'
+    create:
+      success: 'ユーザー登録が完了しました'
+      fail: 'ユーザー登録に失敗しました'
+  user_sessions:
+    new:
+      title: 'ログイン'
+      to_register_page: 'ユーザー登録'
+      password_forget: 'パスワードをお忘れの方'
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
