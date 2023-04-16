@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      subject: '科目'
     attributes:
       user:
         email: 'メールアドレス'
@@ -10,3 +11,8 @@ ja:
         last_name: '姓'
         first_name: '名'
         full_name: '氏名'
+      subject:
+        title: 'タイトル'
+        start_at: '学習開始日時'
+        limit_at: '期限'
+        memo: 'メモ'
