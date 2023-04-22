@@ -1,0 +1,23 @@
+<% content_for(:title, t('.title')) %>
+<div class="container">
+  <div class='mx-auto w-100'>
+    <div class='card text-dark bg-light mt-common'>
+      <div class='card-header text-center fw-bold h5 subject-bg-color'><%= t('.title') %></div>
+      <div class='card-body'>
+        <table class="table bg-light">
+          <thead>
+            <tr>
+              <th scope="col"><%= t('activerecord.attributes.subject.title') %></th>
+              <th scope="col"><%= t('activerecord.attributes.subject.start_at') %></th>
+              <th scope="col"><%= t('activerecord.attributes.subject.limit_at') %></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @subjects %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

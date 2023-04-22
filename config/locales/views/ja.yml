@@ -11,6 +11,7 @@ ja:
     message:
       require_login: 'ログインしてください'
       confirm_logout: 'ログアウトしますか？'
+      delete_confirm: '削除しますか？'
   users:
     new:
       title: 'ユーザー登録'
@@ -31,6 +32,15 @@ ja:
   subjects:
     new:
       title: '科目作成'
+    index:
+      title: '科目一覧'
+    edit:
+      title: '科目編集'
     create:
-      success: '科目作成が完了しました'
+      success: '科目を作成しました'
       fail: '科目作成に失敗しました'
+    update:
+      success: '科目を更新しました'
+      fail: '科目更新に失敗しました'
+    destroy:
+      success: "科目 %{item} を削除しました"
