@@ -1,6 +1,10 @@
 class SubjectsController < ApplicationController
   before_action :set_subcject, only: %i[edit update destroy]
 
+  def index
+    @subjects = current_user.subjects
+  end
+
   def new
     @subject = Subject.new
   end
@@ -13,10 +17,6 @@ class SubjectsController < ApplicationController
       flash.now[:danger] = t('.fail')
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def index
-    @subjects = current_user.subjects
   end
 
   def edit; end

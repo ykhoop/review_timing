@@ -1,0 +1,24 @@
+<%= render 'shared/error_messages', object: f.object %>
+<div class="form-group mb-3">
+  <%= f.label :chapter %>
+  <%= f.text_field :chapter, class: 'form-control' %>
+</div>
+<div class='row'>
+  <div class='col-2'>
+    <div class="form-group mb-3">
+      <%= f.label :start_page %>
+      <%= f.number_field :start_page, class: 'form-control' %>
+    </div>
+  </div>
+  <div class='col-2'>
+    <div class="form-group mb-3">
+      <%= f.label :end_page %>
+      <%= f.number_field :end_page, class: 'form-control' %>
+    </div>
+  </div>
+</div>
+<div class="form-group mb-3 w-50">
+  <%= f.label :start_at %>
+  <%= f.datetime_field :start_at, class: 'form-control' %>
+</div>
+<%= f.submit t('defaults.register'), class: 'btn btn-primary mt-2 mb-3 w-100' %>

@@ -1,0 +1,16 @@
+<% content_for(:title, t('.title')) %>
+<div class="container">
+  <div class='mx-auto w-50'>
+    <div  class='mt-common text-end'>
+      <%= link_to t('subject_details.index.title'), subject_subject_details_path(@subject), class: 'btn btn-secondary' %>
+    </div>
+    <div class='card text-dark bg-light mt-2'>
+      <div class='card-header text-center fw-bold h5 subject-bg-color'><%= t('.title') %></div>
+      <div class='card-body'>
+        <%= form_with model: [@subject, @subject_detail], local: true do |f| %>
+          <%= render 'form', { f: f } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

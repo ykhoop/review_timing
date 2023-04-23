@@ -4,6 +4,7 @@
   <td><%= I18n.ln(subject.limit_at) %></td>
   <td>
     <div class="text-center">
+      <%= link_to t('subject_details.index.title'), subject_subject_details_path(subject), class: 'btn btn-secondary' %>
       <%= link_to t('defaults.edit'), edit_subject_path(subject), class: 'btn btn-success' %>
       <%= link_to t('defaults.delete'), subject_path(subject), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
     </div>
