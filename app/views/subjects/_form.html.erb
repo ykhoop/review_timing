@@ -4,11 +4,11 @@
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="form-group mb-3">
+  <div class="form-group mb-3 w-50">
     <%= f.label :start_at %>
     <%= f.datetime_field :start_at, class: 'form-control' %>
   </div>
-  <div class="form-group mb-3">
+  <div class="form-group mb-3 w-50">
     <%= f.label :limit_at %>
     <%= f.datetime_field :limit_at, class: 'form-control' %>
   </div>
@@ -18,4 +18,3 @@
   </div>
   <%= f.submit t('defaults.register'), class: 'btn btn-primary mt-2 mb-3 w-100' %>
 <% end %>
-</div>

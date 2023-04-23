@@ -3,6 +3,7 @@ ja:
     models:
       user: 'ユーザー'
       subject: '科目'
+      subject_detail: '科目詳細'
     attributes:
       user:
         email: 'メールアドレス'
@@ -16,3 +17,9 @@ ja:
         start_at: '学習開始日時'
         limit_at: '期限'
         memo: 'メモ'
+      subject_detail:
+        chapter: '章'
+        page: 'ページ'
+        start_page: '開始ページ'
+        end_page: '終了ページ'
+        start_at: '学習開始日時'

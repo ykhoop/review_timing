@@ -3,6 +3,7 @@ ja:
     app_name: 'Review Timing'
     login: 'ログイン'
     logout: 'ログアウト'
+    add: '追加'
     register: '登録'
     edit: '編集'
     update: '更新'
@@ -30,17 +31,34 @@ ja:
     destroy:
       success: 'ログアウトしました'
   subjects:
-    new:
-      title: '科目作成'
     index:
       title: '科目一覧'
-    edit:
-      title: '科目編集'
+      no_subject: '科目がありません'
+    new:
+      title: '科目作成'
     create:
       success: '科目を作成しました'
       fail: '科目作成に失敗しました'
+    edit:
+      title: '科目編集'
     update:
       success: '科目を更新しました'
       fail: '科目更新に失敗しました'
     destroy:
       success: "科目 %{item} を削除しました"
+  subject_details:
+    index:
+      title: '科目詳細一覧'
+      no_subject: '科目詳細がありません'
+    new:
+      title: '科目詳細作成'
+    create:
+      success: '科目詳細を作成しました'
+      fail: '科目詳細作成に失敗しました'
+    edit:
+      title: '科目詳細編集'
+    update:
+      success: '科目詳細を更新しました'
+      fail: '科目詳細更新に失敗しました'
+    destroy:
+      success: "科目詳細 %{item} を削除しました"

@@ -1,0 +1,12 @@
+<tr>
+  <td><%= subject_detail.chapter %></td>
+  <td><%= subject_detail.start_page %></td>
+  <td><%= subject_detail.end_page %></td>
+  <td><%= I18n.ln(subject_detail.start_at) %></td>
+  <td>
+    <div class="text-center">
+      <%= link_to t('defaults.edit'), edit_subject_detail_path(subject_detail), class: 'btn btn-success' %>
+      <%= link_to t('defaults.delete'), subject_detail_path(subject_detail), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+    </div>
+  </td>
+</tr>
