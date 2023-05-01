@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # 仮のルーティング
   root 'static_pages#top'
   get 'top', to: 'static_pages#logged_in_top'
+  get 'tmpl_test', to: 'static_pages#tmpl_test'
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :subjects, only: %i[new create index edit update destroy] do
-    resources :subject_details, only: %i[new create index]
-    resources :subject_details, only: %i[edit update destroy], shallow: true
+    resources :subject_details, only: %i[new create index edit update destroy], shallow: true
+    # resources :subject_details, only: %i[edit update destroy], shallow: true
   end
 end

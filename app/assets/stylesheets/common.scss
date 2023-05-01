@@ -1,11 +1,47 @@
-.main-bg-color {
-  background-color: #85cf9e;
+.background {
+  width: 100%;
+  height: 100vh;
+  // background-image: url('background-image1.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-.subject-bg-color {
-  background-color: #b7eefc;
+.background-image-1 {
+  background-image: url('background-image1.jpg');
 }
 
-.mt-common {
-  margin-top: 50px;
+.background-image-2 {
+  background-image: url('background-image2.jpg');
 }
+
+.background-image-3 {
+  background-image: url('background-image3.jpg');
+}
+
+.service-main-color {
+  color: var(--primary-color);
+}
+
+.title-text {
+  color: var(--text-primary-color);
+  margin-bottom: 8px;
+}
+
+.link-text {
+  color: var(--link-color);
+}
+
+.custom-login {
+  margin: 0 100px;
+}
+
+.btn-wide {
+  width: 150px;
+}
+// .subject-bg-color {
+//   background-color: #b7eefc;
+// }
+
+// .mt-common {
+//   margin-top: 50px;
+// }

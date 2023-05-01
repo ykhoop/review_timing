@@ -1,29 +1,30 @@
 <% content_for(:title, t('.title')) %>
-<div class="container">
-  <div class='mx-auto w-100'>
-    <div class='card text-dark bg-light mt-common'>
-      <div class='card-header text-center fw-bold h5 subject-bg-color'><%= t('.title') %></div>
-      <div class='card-body'>
-        <table class="table bg-light">
-          <thead>
-            <tr>
-              <th scope="col"><%= t('activerecord.attributes.subject.title') %></th>
-              <th scope="col"><%= t('activerecord.attributes.subject.start_at') %></th>
-              <th scope="col"><%= t('activerecord.attributes.subject.limit_at') %></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% if @subjects.present? %>
-              <%= render @subjects %>
-            <% else %>
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3 class="title-text"><%= t('.title') %></h3>
+        <div class="table-responsive">
+          <table class="schedule-table table bg-light table-hover">
+            <thead>
               <tr>
-                <td colspan="4" class="text-center"><%= t('.no_subject') %></td>
+                <th scope="col"><%= t('activerecord.attributes.subject.title') %></th>
+                <th scope="col"><%= t('activerecord.attributes.subject.start_at') %></th>
+                <th scope="col"><%= t('activerecord.attributes.subject.limit_at') %></th>
+                <th scope="col"></th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <% if @subjects.present? %>
+                <%= render @subjects %>
+              <% else %>
+                <tr>
+                  <td colspan="4" class="text-center"><%= t('.no_subject') %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
   </div>
-</div>
+</section>

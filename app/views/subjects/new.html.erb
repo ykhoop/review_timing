@@ -1,11 +1,11 @@
 <% content_for(:title, t('.title')) %>
-<div class="container">
-  <div class='mx-auto w-50'>
-    <div class='card text-dark bg-light mt-common'>
-      <div class='card-header text-center fw-bold h5 subject-bg-color'><%= t('.title') %></div>
-      <div class='card-body'>
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-12 mx-auto">
+        <h3 class="title-text text-center"><%= t('.title') %></h3>
         <%= render 'form', subject: @subject %>
       </div>
     </div>
   </div>
-</div>
+</section>

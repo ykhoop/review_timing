@@ -6,4 +6,7 @@ class StaticPagesController < ApplicationController
 
   def logged_in_top
   end
+
+  def tmpl_test
+  end
 end

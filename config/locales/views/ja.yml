@@ -8,6 +8,7 @@ ja:
     edit: '編集'
     update: '更新'
     delete: '削除'
+    detail: '詳細'
     menu: 'メニュー'
     message:
       require_login: 'ログインしてください'
