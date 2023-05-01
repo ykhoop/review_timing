@@ -1,16 +1,16 @@
 <header>
-  <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <%= link_to root_path, class: 'ms-3 navbar-brand' do %>
-      <span class='text-info fw-bold fst-italic'>Review Timing</span>
+      <span class="service-main-color fw-bold fst-italic"><%= t('defaults.app_name') %></span>
     <% end %>
 
-    <button class='me-3 navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-      <span class='navbar-toggler-icon'></span>
+    <button class="me-3 navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-      <ul class='navbar-nav ms-auto me-3 align-items-start'>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto me-3 align-items-start">
 
         <li class="nav-item">
           <%= link_to t('defaults.login'), login_path, class: 'nav-link' %>

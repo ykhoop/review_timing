@@ -1,32 +1,32 @@
 <% content_for(:title, t('.title')) %>
-<div class="container">
-  <div class='mx-auto w-100'>
-    <div  class='mt-common text-end'>
-      <%= link_to t('defaults.add'), new_subject_subject_detail_path(@subject), class: 'btn btn-primary' %>
-    </div>
-    <div class='card text-dark bg-light mt-2'>
-      <div class='card-header text-center fw-bold h5 subject-bg-color'><%= t('.title') %></div>
-      <div class='card-body'>
-        <table class="table bg-light">
-          <thead>
-            <tr>
-              <th scope="col"><%= t('activerecord.attributes.subject_detail.chapter') %></th>
-              <th scope="col" colspan="2"><%= t('activerecord.attributes.subject_detail.page') %></th>
-              <th scope="col"><%= t('activerecord.attributes.subject_detail.start_at') %></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% if @subject_details.present? %>
-              <%= render @subject_details %>
-            <% else %>
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3 class="title-text"><%= t('.title') %></h3>
+        <div class="table-responsive">
+          <table class="schedule-table table bg-light table-hover">
+            <thead>
               <tr>
-                <td colspan="4" class="text-center"><%= t('.no_subject') %></td>
+                <th scope="col"><%= t('activerecord.attributes.subject_detail.chapter') %></th>
+                <th scope="col"><%= t('activerecord.attributes.subject_detail.page') %></th>
+                <th scope="col"><%= t('activerecord.attributes.subject_detail.start_at') %></th>
+                <th scope="col">
+                  <%= link_to t('defaults.add'), new_subject_subject_detail_path(@subject), class: 'btn btn-default new-btn' %>
+                </th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <% if @subject_details.present? %>
+                <%= render @subject_details %>
+              <% else %>
+                <tr>
+                  <td colspan="4" class="text-center"><%= t('.no_subject') %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
   </div>
-</div>
+</section>
