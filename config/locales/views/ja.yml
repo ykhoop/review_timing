@@ -63,3 +63,11 @@ ja:
       fail: '科目詳細更新に失敗しました'
     destroy:
       success: "科目詳細 %{item} を削除しました"
+    review_time:
+      title: '復習時間'
+      plan: '予定'
+      actual: '実績'
+      number_label: '回目'
+    update_review_time:
+      success: '復習時間を更新しました'
+      fail: '復習時間更新に失敗しました'
