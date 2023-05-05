@@ -4,6 +4,7 @@ ja:
       user: 'ユーザー'
       subject: '科目'
       subject_detail: '科目詳細'
+      subject_review: '復習時間'
     attributes:
       user:
         email: 'メールアドレス'
@@ -23,3 +24,7 @@ ja:
         start_page: '開始ページ'
         end_page: '終了ページ'
         start_at: '学習開始日時'
+      subject_review:
+        review_type: '復習タイプ'
+        review_number: '復習回数'
+        review_at: '復習日時'

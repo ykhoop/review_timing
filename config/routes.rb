@@ -16,7 +16,12 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :subjects, only: %i[new create index edit update destroy] do
-    resources :subject_details, only: %i[new create index edit update destroy], shallow: true
+    resources :subject_details, only: %i[new create index edit update destroy], shallow: true do
     # resources :subject_details, only: %i[edit update destroy], shallow: true
+      member do
+        get 'review_time'
+        patch 'update_review_time'
+      end
+    end
   end
 end
