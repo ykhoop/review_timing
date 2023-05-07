@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+
+      # ここで、user_review_settingを作成する
+      UserReviewSetting.create_review_days(@user)
+
       redirect_to login_path, success: t('.success')
     else
       flash.now[:danger] = t('.fail')

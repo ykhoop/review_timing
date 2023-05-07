@@ -1,0 +1,42 @@
+<% content_for(:title, t('.title')) %>
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <h3 class="title-text text-center"><%= t('.title') %></h3>
+        <div class="tab-content shadow-lg">
+          <%= form_with model: @user, url: update_user_setting_users_path do |f| %>
+
+            <span class="label-text"><%= t('.user_review_settings_title') %></span>
+
+            <%= f.fields_for :user_review_settings, @user_review_settings do |s_f| %>
+              <%= render 'shared/error_messages', object: s_f.object %>
+
+                <div class="form-group mb-3">
+                  <div class="row d-flex align-items-center">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-2">
+                      <%= "#{s_f.object.review_number}#{t('.review_number_label')}" %>
+                    </div>
+                    <div class="col-2">
+                      <%= s_f.number_field  :review_days, class: 'form-control', min: "1", max: "99" %>
+                    </div>
+                    <div class="col-2">
+                      <%= t('.review_days_label') %>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+
+            <div class="text-center mb-3">
+              <%= f.submit t('defaults.register'), class: 'btn custom-btn btn-wide' %>
+            </div>
+
+          <% end %>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
