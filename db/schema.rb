@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_23_022723) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_05_082037) do
   create_table "subject_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "subject_id", null: false
     t.string "chapter"
@@ -43,6 +43,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_022723) do
     t.index ["user_id"], name: "index_subjects_on_user_id"
   end
 
+  create_table "user_review_settings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "review_number", null: false
+    t.integer "review_days", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_review_settings_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", null: false
     t.string "first_name", null: false
@@ -58,4 +67,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_022723) do
   add_foreign_key "subject_details", "subjects"
   add_foreign_key "subject_reviews", "subject_details"
   add_foreign_key "subjects", "users"
+  add_foreign_key "user_review_settings", "users"
 end

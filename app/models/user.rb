@@ -2,6 +2,8 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :subjects, dependent: :destroy
+  has_many :user_review_settings, dependent: :destroy
+  accepts_nested_attributes_for :user_review_settings
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

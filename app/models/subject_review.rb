@@ -7,15 +7,15 @@ class SubjectReview < ApplicationRecord
   enum review_type: { plan: 0, actual: 1 }
 
 
-  def self.create_revies(subject_detail)
+  def self.create_reviews(subject_detail, review_days)
+
     2.times do |i|
       4.times do |j|
-        @subject_review = SubjectReview.new
-        @subject_review.subject_detail_id = subject_detail.id
-        @subject_review.review_type = i
-        @subject_review.review_number = j + 1
-        i == 0 ? @subject_review.review_at = Date.today + (j + 1).days : nil
-        @subject_review.save!
+        subject_review = subject_detail.subject_reviews.build
+        subject_review.review_type = i
+        subject_review.review_number = j + 1
+        i == 0 ? subject_review.review_at = subject_detail.start_at + review_days[j].days : nil
+        subject_review.save!
       end
     end
   end

@@ -17,8 +17,14 @@ class SubjectDetailsController < ApplicationController
     @subject_detail = SubjectDetail.new(subject_detail_params)
     if @subject_detail.save
 
+      # ユーザーの復習日数設定を取得
+      review_days = []
+      4.times do |i|
+        review_days.push(current_user.user_review_settings.where(review_number: i + 1).first.review_days)
+      end
+
       # ここで、subject_reviewを作成する
-      SubjectReview.create_revies(@subject_detail)
+      SubjectReview.create_reviews(@subject_detail, review_days)
 
       redirect_to subject_subject_details_path(@subject.id), success: t('.success')
     else
@@ -30,7 +36,7 @@ class SubjectDetailsController < ApplicationController
   def edit; end
 
   def update
-    if @subject_detail.update(subject_detail_update_params)
+    if @subject_detail.update(update_subject_detail_params)
       redirect_to subject_subject_details_path(@subject_detail.subject_id), success: t('.success')
     else
       flash.now[:danger] = t('.fail')
@@ -50,7 +56,7 @@ class SubjectDetailsController < ApplicationController
 
   def update_review_time
     # binding.break
-    if @subject_detail.update(subject_review_update_params)
+    if @subject_detail.update(update_subject_review_params)
       redirect_to subject_subject_details_path(@subject_detail.subject_id), success: t('.success')
     else
       flash.now[:danger] = t('.fail')
@@ -83,11 +89,11 @@ class SubjectDetailsController < ApplicationController
     params.require(:subject_detail).permit(:chapter, :start_page, :end_page, :start_at).merge(subject_id: params[:subject_id])
   end
 
-  def subject_detail_update_params
+  def update_subject_detail_params
     params.require(:subject_detail).permit(:chapter, :start_page, :end_page, :start_at)
   end
 
-  def subject_review_update_params
+  def update_subject_review_params
     params.require(:subject_detail).permit(subject_reviews_attributes: [:id, :review_at])
     # params.require(:subject_detail).permit(subject_reviews_attributes: [:id, :review_type, :review_number, :review_at])
   end

@@ -14,7 +14,12 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create] do
+    collection do
+      get 'user_setting', to: 'user_settings#edit'
+      patch 'update_user_setting', to: 'user_settings#update'
+    end
+  end
   resources :subjects, only: %i[new create index edit update destroy] do
     resources :subject_details, only: %i[new create index edit update destroy], shallow: true do
     # resources :subject_details, only: %i[edit update destroy], shallow: true
