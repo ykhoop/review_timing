@@ -44,6 +44,61 @@
 .btn-wide {
   width: 150px;
 }
+
+// .first {
+//   border: solid 1px var(--dark-color);
+//   padding: 5px 10px;
+//   background-color: var(--dark-color);
+// }
+
+// .prev {
+//   border: solid 1px var(--dark-color);
+//   padding: 5px 10px;
+//   background-color: var(--dark-color);
+// }
+
+// .page {
+//   border: solid 1px var(--dark-color);
+//   padding: 5px 10px;
+//   background-color: var(--dark-color);
+// }
+
+// .page.current {
+//   border: solid 1px var(--dark-color);
+//   padding: 5px 10px;
+//   background-color: var(--white-color);
+// }
+
+// .next {
+//   border: solid 1px var(--dark-color);
+//   padding: 5px 10px;
+//   background-color: var(--dark-color);
+// }
+
+// .last {
+//   border: solid 1px var(--dark-color);
+//   padding: 5px 10px;
+//   border-radius: 0 25% 25% 0;
+//   background-color: var(--dark-color);
+// }
+
+.pagination span {
+  border: solid 1px var(--dark-color);
+  padding: 5px 10px;
+  background-color: var(--dark-color);
+}
+
+.pagination span:first-of-type {
+  border-radius: 25% 0 0 25%;
+}
+
+.pagination span:last-of-type {
+  border-radius: 0 25% 25% 0;
+}
+
+.pagination .current {
+  background-color: var(--white-color);
+}
 // .subject-bg-color {
 //   background-color: #b7eefc;
 // }

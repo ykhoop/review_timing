@@ -4,7 +4,7 @@ class SubjectDetailsController < ApplicationController
 
   def index
     # @subject = Subject.find(params[:subject_id])
-    @subject_details = @subject.subject_details
+    @subject_details = @subject.subject_details.order(:id)
   end
 
   def new

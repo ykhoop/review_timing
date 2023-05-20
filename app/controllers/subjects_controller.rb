@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
   before_action :set_subcject, only: %i[edit update destroy]
 
   def index
-    @subjects = current_user.subjects
+    @subjects = current_user.subjects.order(:id)
   end
 
   def new

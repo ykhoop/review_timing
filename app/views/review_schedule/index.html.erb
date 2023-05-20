@@ -1,0 +1,15 @@
+<% content_for(:title, t('.title')) %>
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3 class="title-text"><%= t('.title') %></h3>
+        <div class="table-responsive">
+          <table class="schedule-table table bg-light table-hover">
+            schedule
+            <%= @user_schedule.count %>
+          </table>
+        </div>
+      </div>
+  </div>
+</section>

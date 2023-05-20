@@ -81,3 +81,12 @@ ja:
     update_review_time:
       success: '復習時間を更新しました'
       fail: '復習時間更新に失敗しました'
+  review_schedule:
+    schedule:
+      title: '復習スケジュール'
+      no_schedule: '復習スケジュールがありません'
+      label_title: 'タイトル'
+      label_chapter: '章'
+      label_page: 'ページ'
+      prev_month: '前月'
+      next_month: '次月'
