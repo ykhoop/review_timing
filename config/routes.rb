@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     collection do
       get 'user_setting', to: 'user_settings#edit'
       patch 'update_user_setting', to: 'user_settings#update'
+      get 'review_schedule/:ym', to: 'review_schedule#schedule', as: 'review_schedule'
     end
   end
   resources :subjects, only: %i[new create index edit update destroy] do

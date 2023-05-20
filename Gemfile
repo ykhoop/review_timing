@@ -69,3 +69,4 @@ end
 
 gem 'sorcery'
 gem 'rails-i18n'
+gem 'kaminari'
