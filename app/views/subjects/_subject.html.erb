@@ -6,7 +6,7 @@
     <div class="text-center">
       <%= link_to t('defaults.detail'), subject_subject_details_path(subject), class: 'btn btn-default detail-btn' %>
       <%= link_to t('defaults.edit'), edit_subject_path(subject), class: 'btn btn-default edit-btn' %>
-      <%= link_to t('defaults.delete'), subject_path(subject), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-default del-btn' %>
+      <%= link_to t('defaults.delete'), subject_path(subject), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.confirm_delete') }, class: 'btn btn-default del-btn' %>
     </div>
   </td>
 </tr>

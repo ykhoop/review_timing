@@ -17,14 +17,8 @@ class SubjectDetailsController < ApplicationController
     @subject_detail = SubjectDetail.new(subject_detail_params)
     if @subject_detail.save
 
-      # ユーザーの復習日数設定を取得
-      review_days = []
-      4.times do |i|
-        review_days.push(current_user.user_review_settings.where(review_number: i + 1).first.review_days)
-      end
-
       # ここで、subject_reviewを作成する
-      SubjectReview.create_reviews(@subject_detail, review_days)
+      SubjectReview.create_reviews!(@subject_detail, current_user)
 
       redirect_to subject_subject_details_path(@subject.id), success: t('.success')
     else

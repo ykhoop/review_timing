@@ -6,6 +6,7 @@ ja:
       subject_detail: '科目詳細'
       subject_review: '復習時間'
       user_review_setting: '復習設定'
+      user_setting: 'ユーザー設定'
     attributes:
       user:
         email: 'メールアドレス'
@@ -17,6 +18,10 @@ ja:
       user_review_setting:
         review_number: '復習回数'
         review_days: '復習日数'
+      user_setting:
+        remind_mail: 'メール'
+        remind_line: 'LINE'
+        remind_browser: 'ブラウザプッシュ'
       subject:
         title: 'タイトル'
         start_at: '学習開始日時'

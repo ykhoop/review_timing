@@ -7,26 +7,86 @@
         <div class="tab-content shadow-lg">
           <%= form_with model: @user, url: update_user_setting_users_path do |f| %>
 
-            <span class="label-text"><%= t('.user_review_settings_title') %></span>
+            <p class="label-text mb-2"><%= t('.user_review_settings_title') %></p>
 
             <%= f.fields_for :user_review_settings, @user_review_settings do |s_f| %>
               <%= render 'shared/error_messages', object: s_f.object %>
 
-                <div class="form-group mb-3">
-                  <div class="row d-flex align-items-center">
-                    <div class="col-1">
-                    </div>
-                    <div class="col-2">
-                      <%= "#{s_f.object.review_number}#{t('.review_number_label')}" %>
-                    </div>
-                    <div class="col-2">
-                      <%= s_f.number_field  :review_days, class: 'form-control', min: "1", max: "99" %>
-                    </div>
-                    <div class="col-2">
-                      <%= t('.review_days_label') %>
-                    </div>
+              <div class="form-group mb-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-1">
+                  </div>
+                  <div class="col-2">
+                    <%= "#{s_f.object.review_number}#{t('.review_number_label')}" %>
+                  </div>
+                  <div class="col-2">
+                    <%= s_f.number_field  :review_days, class: 'form-control', min: "1", max: "99" %>
+                  </div>
+                  <div class="col-2">
+                    <%= t('.review_days_label') %>
                   </div>
                 </div>
+              </div>
+            <% end %>
+
+            <p class="label-text mb-2"><%= t('.user_remind_settings_title') %></p>
+
+            <%= f.fields_for :user_setting, @user_setting do |s_f| %>
+              <%= render 'shared/error_messages', object: s_f.object %>
+
+              <div class="form-group mb-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-1">
+                  </div>
+                  <div class="col-4">
+                    <%= f.label :remind_mail, UserSetting.human_attribute_name(:remind_mail) %>
+                  </div>
+                  <div class="col-3">
+                    <%= s_f.radio_button :remind_mail, :mail_receive, class: 'form-check-input', id: 'mail_receive' %>
+                    <label class="form-check-label" for="mail_receive"><%= t('.receive_label')%></label>
+                  </div>
+                  <div class="col-3">
+                    <%= s_f.radio_button :remind_mail, :mail_not_receive, class: 'form-check-input', id: 'mail_not_receive' %>
+                    <label class="form-check-label" for="mail_not_receive"><%= t('.not_receive_label')%></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-1">
+                  </div>
+                  <div class="col-4">
+                    <%= f.label :remind_line, UserSetting.human_attribute_name(:remind_line) %>
+                  </div>
+                  <div class="col-3">
+                    <%= s_f.radio_button :remind_line, :line_receive, class: 'form-check-input', id: 'line_receive' %>
+                    <label class="form-check-label" for="line_receive"><%= t('.receive_label')%></label>
+                  </div>
+                  <div class="col-3">
+                    <%= s_f.radio_button :remind_line, :line_not_receive, class: 'form-check-input', id: 'line_not_receive' %>
+                    <label class="form-check-label" for="line_not_receive"><%= t('.not_receive_label')%></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-1">
+                  </div>
+                  <div class="col-4">
+                    <%= f.label :remind_browser, UserSetting.human_attribute_name(:remind_browser) %>
+                  </div>
+                  <div class="col-3">
+                    <%= s_f.radio_button :remind_browser, :browser_receive, class: 'form-check-input', id: 'browser_receive' %>
+                    <label class="form-check-label" for="browser_receive"><%= t('.receive_label')%></label>
+                  </div>
+                  <div class="col-3">
+                    <%= s_f.radio_button :remind_browser, :browser_not_receive, class: 'form-check-input', id: 'browser_not_receive' %>
+                    <label class="form-check-label" for="browser_not_receive"><%= t('.not_receive_label')%></label>
+                  </div>
+                </div>
+              </div>
             <% end %>
 
             <div class="text-center mb-3">

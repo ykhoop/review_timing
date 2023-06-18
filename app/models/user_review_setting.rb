@@ -13,4 +13,12 @@ class UserReviewSetting < ApplicationRecord
     end
   end
 
+  def self.review_days(user)
+    review_days = []
+    4.times do |i|
+      review_days.push(user.user_review_settings.where(review_number: i + 1).first.review_days)
+    end
+    return review_days
+  end
+
 end
