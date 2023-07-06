@@ -3,7 +3,11 @@ class User < ApplicationRecord
 
   has_many :subjects, dependent: :destroy
   has_many :user_review_settings, dependent: :destroy
+  has_many :authentications, dependent: :destroy
+  has_one  :user_setting, dependent: :destroy
   accepts_nested_attributes_for :user_review_settings
+  accepts_nested_attributes_for :authentications
+  accepts_nested_attributes_for :user_setting
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -20,4 +24,7 @@ class User < ApplicationRecord
     id == object.user_id
   end
 
+  def has_line?
+    authentications.find_by(provider: 'line').present?
+  end
 end

@@ -11,10 +11,13 @@ ja:
     detail: '詳細'
     menu: 'メニュー'
     setting: '設定'
+    line_linking: 'LINE連携'
+    line_unlinking: 'LINE連携解除'
     message:
       require_login: 'ログインしてください'
       confirm_logout: 'ログアウトしますか？'
-      delete_confirm: '削除しますか？'
+      confirm_line_unlinking: 'LINE連携を解除しますか？'
+      confirm_delete: '削除しますか？'
   users:
     new:
       title: 'ユーザー登録'
@@ -38,6 +41,9 @@ ja:
       user_review_settings_title: '復習期間'
       review_number_label: '回目'
       review_days_label: '日後'
+      user_remind_settings_title: 'リマインド通知'
+      receive_label: '受け取る'
+      not_receive_label: '受け取らない'
     update:
       success: 'ユーザー設定を更新しました'
       fail: 'ユーザー設定更新に失敗しました'
@@ -90,3 +96,13 @@ ja:
       label_page: 'ページ'
       prev_month: '前月'
       next_month: '次月'
+  notifications:
+    line:
+      title: '【レビュー通知】'
+      message: '下記科目が本日の復習の対象です。'
+      chapter: '章'
+      page: 'ページ'
+      start_date: '学習開始日'
+      review_number: 'レビュー回数'
+      review_number_suffix: '回目'
+      review_time: 'レビュー時刻'

@@ -70,3 +70,6 @@ end
 gem 'sorcery'
 gem 'rails-i18n'
 gem 'kaminari'
+gem 'config'
+gem 'line-bot-api'
+gem 'dotenv-rails'

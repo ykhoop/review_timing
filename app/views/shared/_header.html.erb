@@ -20,7 +20,7 @@
           <div class="dropdown-menu dropdown-menu-lg-end">
             <%= link_to t('subjects.index.title'), subjects_path, class: 'dropdown-item' %>
             <%= link_to t('subjects.new.title'), new_subject_path, class: 'dropdown-item' %>
-            <%= link_to 'スケジュール', review_schedule_users_path(Time.zone.today.strftime('%Y%m')), class: 'dropdown-item' %>
+            <%= link_to t('review_schedule.schedule.title'), review_schedule_users_path(Time.zone.today.strftime('%Y%m')), class: 'dropdown-item' %>
           </div>
         </li>
 
@@ -31,6 +31,11 @@
           <div class="dropdown-menu dropdown-menu-lg-end">
             <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
             <%= link_to t('defaults.setting'), user_setting_users_path, class: 'dropdown-item' %>
+            <% if (!current_user.has_line?) %>
+              <%= link_to t('defaults.line_linking'), oauth_at_provider_users_path(provider: :line), class: 'dropdown-item' %>
+            <% else %>
+              <%= link_to t('defaults.line_unlinking'), oauth_at_provider_users_path(provider: :line), class: 'dropdown-item', data: { turbo_method: :delete, turbo_confirm: t('defaults.message.confirm_line_unlinking') } %>
+            <% end %>
             <%= link_to t('defaults.logout'), logout_path, class: 'dropdown-item', data: { turbo_method: :delete, turbo_confirm: t('defaults.message.confirm_logout') } %>
           </div>
         </li>

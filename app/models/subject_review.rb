@@ -6,8 +6,9 @@ class SubjectReview < ApplicationRecord
 
   enum review_type: { plan: 0, actual: 1 }
 
+  def self.create_reviews!(subject_detail, user)
 
-  def self.create_reviews(subject_detail, review_days)
+    review_days = UserReviewSetting.review_days(user)
 
     2.times do |i|
       4.times do |j|

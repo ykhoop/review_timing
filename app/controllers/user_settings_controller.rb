@@ -3,6 +3,7 @@ class UserSettingsController < ApplicationController
 
   def edit
     @user_review_settings = @user.user_review_settings.order(:review_number)
+    @user_setting = @user.user_setting
   end
 
   def update
@@ -22,7 +23,7 @@ class UserSettingsController < ApplicationController
   end
 
   def update_user_review_setting_params
-    params.require(:user).permit(user_review_settings_attributes: [:id, :review_days])
+    params.require(:user).permit(user_review_settings_attributes: [:id, :review_days], user_setting_attributes: [:id, :remind_mail, :remind_line, :remind_browser])
   end
 
 end
