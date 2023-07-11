@@ -1,7 +1,9 @@
 class ReviewScheduleController < ApplicationController
   def schedule
-    # DBから取得した日付を日本時間に変換するための文字列
-    str_time_zone = 'Tokyo'
+    # DBのタイムゾーン
+    time_zone_of_db = 'UTC'
+    # 表示するタイムゾーン
+    time_zone_to_display = 'Tokyo'
     # パラメータから年月を取得
     str_ym = params[:ym]
 
@@ -14,8 +16,8 @@ class ReviewScheduleController < ApplicationController
     @next_ym = date_ymd.next_month.strftime('%Y%m')
 
     # 対象月のレコードを取得するための日付条件を設定
-    start_date = date_ymd.beginning_of_month.in_time_zone('UTC')
-    next_start_date = date_ymd.next_month.beginning_of_month.in_time_zone('UTC')
+    start_date = date_ymd.beginning_of_month.in_time_zone(time_zone_of_db)
+    next_start_date = date_ymd.next_month.beginning_of_month.in_time_zone(time_zone_of_db)
 
     # ユーザーのスケジュールのレコードを取得
     user_schedules_records = current_user.subjects.joins(subject_details: :subject_reviews)
@@ -69,15 +71,15 @@ class ReviewScheduleController < ApplicationController
       end
 
       # 学習開始日時が対象月の場合はSを設定
-      if redcord.start_at.in_time_zone(str_time_zone).month == @this_m then
+      if redcord.start_at.in_time_zone(time_zone_to_display).month == @this_m then
         if redcord.review_number == 1 then
-          user_schedule[redcord.start_at.in_time_zone(str_time_zone).day] = 'S '
+          user_schedule[redcord.start_at.in_time_zone(time_zone_to_display).day] = 'S '
         end
       end
 
       # レビュー日時が対象月の場合はRを設定
-      if redcord.review_at.in_time_zone(str_time_zone).month == @this_m then
-        user_schedule[redcord.review_at.in_time_zone(str_time_zone).day] << "R#{redcord.review_number} "
+      if redcord.review_at.in_time_zone(time_zone_to_display).month == @this_m then
+        user_schedule[redcord.review_at.in_time_zone(time_zone_to_display).day] << "R#{redcord.review_number} "
       end
 
       # 科目詳細IDを格納しておく
