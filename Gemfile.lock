@@ -66,11 +66,14 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    addressable (2.8.4)
+      public_suffix (>= 2.0.2, < 6.0)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    chronic (0.10.2)
     concurrent-ruby (1.2.2)
     config (4.2.0)
       deep_merge (~> 1.2, >= 1.2.1)
@@ -150,6 +153,15 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
+    letter_opener_web (2.0.0)
+      actionmailer (>= 5.2)
+      letter_opener (~> 1.7)
+      railties (>= 5.2)
+      rexml
     line-bot-api (1.28.0)
     loofah (2.20.0)
       crass (~> 1.0.2)
@@ -188,6 +200,7 @@ GEM
       rack (>= 1.2, < 4)
       snaky_hash (~> 2.0)
       version_gem (~> 1.1)
+    public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
@@ -226,6 +239,7 @@ GEM
     rake (13.0.6)
     reline (0.3.3)
       io-console (~> 0.5)
+    rexml (3.2.5)
     ruby2_keywords (0.0.5)
     snaky_hash (2.0.1)
       hashie
@@ -260,6 +274,8 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
     zeitwerk (2.6.7)
 
 PLATFORMS
@@ -274,6 +290,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kaminari
+  letter_opener_web
   line-bot-api
   mysql2 (~> 0.5)
   puma (~> 5.0)
@@ -285,6 +302,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  whenever
 
 RUBY VERSION
    ruby 3.2.1p31
