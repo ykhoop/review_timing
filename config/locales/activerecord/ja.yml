@@ -15,6 +15,9 @@ ja:
         last_name: '姓'
         first_name: '名'
         full_name: '氏名'
+        role: '権限'
+        created_at: '作成日時'
+        updated_at: '更新日時'
       user_review_setting:
         review_number: '復習回数'
         review_days: '復習日数'
@@ -37,3 +40,9 @@ ja:
         review_type: '復習タイプ'
         review_number: '復習回数'
         review_at: '復習日時'
+
+  enums:
+    user:
+      role:
+        general: '一般'
+        admin: '管理者'

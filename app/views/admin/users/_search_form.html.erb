@@ -1,0 +1,18 @@
+<div class="m-2">
+  <%= search_form_for @q, url: admin_users_path do |f| %>
+    <div class="row">
+      <div class="col-auto">
+        <%= f.search_field :email_cont, class: 'form-control', placeholder: t('admin.users.index.search.email') %>
+      </div>
+      <div class="col-auto">
+        <%= f.search_field :first_name_or_last_name_cont, class: 'form-control', placeholder: t('admin.users.index.search.name') %>
+      </div>
+      <div class="col-auto">
+        <%= f.select :role_eq, User.roles_i18n.invert.map{|key, value| [key, User.roles[value]]}, { include_blank: t('admin.users.index.search.role') }, { class: 'form-control' } %>
+      </div>
+      <div class="col-auto">
+        <%= f.submit class: 'btn btn-secondary' %>
+      </div>
+    </div>
+  <% end %>
+</div>

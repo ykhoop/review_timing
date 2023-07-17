@@ -1,0 +1,64 @@
+<% content_for(:title, t('.title')) %>
+<h3 class="text-white"><%= t('.title') %></h3>
+<div class="card w-50">
+  <div class="card-body">
+    <%= form_with model:@user, url: admin_user_path(@user), local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <table class="table table-edit my-2">
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:id) %></th>
+          <td><%= @user.id %></td>
+        </tr>
+        <tr>
+          <th scope="row" class="bg-primary">
+            <%= f.label :email %>
+          </th>
+          <td>
+            <%= f.email_field :email, class: 'form-control' %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="bg-primary">
+            <%= f.label :first_name %>
+          </th>
+          <td>
+            <%= f.text_field :first_name, class: 'form-control' %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="bg-primary">
+            <%= f.label :last_name %>
+          </th>
+          <td>
+            <%= f.text_field :last_name, class: 'form-control' %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="bg-primary">
+            <%= f.label :role %>
+          </th>
+          <td>
+            <%= f.radio_button :role, :general %>
+            <%= f.label :role_general, t('enums.user.role.general'), class: 'me-3' %>
+            <%= f.radio_button :role, :admin %>
+            <%= f.label :role_admin, t('enums.user.role.admin') %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:created_at) %></th>
+          <td><%= l @user.created_at, format: :long %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:updated_at) %></th>
+          <td><%= l @user.updated_at, format: :long %></td>
+        </tr>
+      </table>
+
+      <div class="text-center my-2">
+        <%= link_to t('defaults.back'), admin_users_path, class: 'btn btn-outline-secondary mx-3' %>
+        <%= f.submit class: 'btn btn-primary mx-3' %>
+      </div>
+    <% end %>
+  </div>
+</div>

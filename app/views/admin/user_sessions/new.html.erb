@@ -1,0 +1,7 @@
+<% content_for(:title, t('.title')) %>
+<%= form_with url: admin_login_path, class: "login-form", local: true do |f| %>
+  <h1><%= t('defaults.app_name') %></h1>
+  <%= f.text_field :email, class: "login-input", placeholder: :email %>
+  <%= f.password_field :password, class: "login-input", placeholder: :password %>
+  <%= f.submit (t 'defaults.login'), class: "login-input" %>
+<% end %>

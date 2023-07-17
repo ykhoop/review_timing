@@ -1,0 +1,28 @@
+<tr>
+  <td>
+    <%= user.id %>
+  </td>
+  <td>
+    <%= user.email %>
+  </td>
+  <td>
+    <%= user.first_name %>
+  </td>
+  <td>
+    <%= user.last_name %>
+  </td>
+  <td>
+    <%= user.role_i18n %>
+  </td>
+  <td>
+    <%= l user.created_at, format: :long %>
+  </td>
+  <td>
+    <%= l user.updated_at, format: :long %>
+  </td>
+  <td>
+    <%= link_to t('defaults.detail'), admin_user_path(user), class: 'btn btn-outline-info mx-1' %>
+    <%= link_to t('defaults.edit'), edit_admin_user_path(user), class: 'btn btn-outline-success mx-1' %>
+    <%= link_to t('defaults.delete'), admin_user_path(user), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.confirm_delete') }, class: 'btn btn-outline-danger mx-1' %>
+  </td>
+</tr>
