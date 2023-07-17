@@ -9,6 +9,7 @@ ja:
     update: '更新'
     delete: '削除'
     detail: '詳細'
+    back: '戻る'
     menu: 'メニュー'
     setting: '設定'
     line_linking: 'LINE連携'
@@ -106,3 +107,29 @@ ja:
     review_number: 'レビュー回数'
     review_number_suffix: '回目'
     review_time: 'レビュー時刻'
+  admin:
+    user_sessions:
+      new:
+        title: 'ログイン'
+      create:
+        success: 'ログインしました'
+        fail: 'ログインに失敗しました'
+      destroy:
+        success: 'ログアウトしました'
+    users:
+      index:
+        title: 'ユーザー一覧'
+        no_user: 'ユーザーがありません'
+        search:
+          email: 'メールアドレス'
+          name: '名前'
+          role: '(権限)'
+      show:
+        title: 'ユーザー詳細'
+      edit:
+        title: 'ユーザー編集'
+      update:
+        success: 'ユーザー ID: %{item} を更新しました'
+        fail: 'ユーザー ID: %{item} 更新に失敗しました'
+      destroy:
+        success: "ユーザー %{item} を削除しました"

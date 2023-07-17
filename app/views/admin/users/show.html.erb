@@ -1,0 +1,40 @@
+<% content_for(:title, t('.title')) %>
+<h3 class="text-white"><%= t('.title') %></h3>
+<div class="card w-50">
+  <div class="card-body">
+    <table class="table border border-secondary table-show my-2">
+      <tr>
+        <th scope="row"><%= User.human_attribute_name(:id) %></th>
+        <td><%= @user.id %></td>
+      </tr>
+      <tr>
+        <th scope="row"><%= User.human_attribute_name(:email) %></th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th scope="row"><%= User.human_attribute_name(:first_name) %></th>
+        <td><%= @user.first_name %></td>
+      </tr>
+      <tr>
+        <th scope="row"><%= User.human_attribute_name(:last_name) %></th>
+        <td><%= @user.last_name %></td>
+      </tr>
+      <tr>
+        <th scope="row"><%= User.human_attribute_name(:role) %></th>
+        <td><%= @user.role_i18n %></td>
+      </tr>
+      <tr>
+        <th scope="row"><%= User.human_attribute_name(:created_at) %></th>
+        <td><%= l @user.created_at, format: :long %></td>
+      </tr>
+      <tr>
+        <th scope="row"><%= User.human_attribute_name(:updated_at) %></th>
+        <td><%= l @user.updated_at, format: :long %></td>
+      </tr>
+    </table>
+
+    <div class="text-center my-2">
+      <%= link_to t('defaults.back'), admin_users_path, class: 'btn btn-outline-secondary' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<% content_for(:title, t('.title')) %>
+<h3 class="text-white"><%= t('.title') %></h3>
+<%= render 'search_form' %>
+<table class="table table-hover border border-secondary">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col"><%= User.human_attribute_name(:id) %></th>
+      <th scope="col"><%= User.human_attribute_name(:email) %></th>
+      <th scope="col"><%= User.human_attribute_name(:first_name) %></th>
+      <th scope="col"><%= User.human_attribute_name(:last_name) %></th>
+      <th scope="col"><%= User.human_attribute_name(:role) %></th>
+      <th scope="col"><%= User.human_attribute_name(:created_at) %></th>
+      <th scope="col"><%= User.human_attribute_name(:updated_at) %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody class="table-light">
+    <% if @users.present? %>
+      <%= render @users %>
+    <% else %>
+      <tr>
+        <td colspan="8" class="text-center"><%= t('.no_user') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @users %>

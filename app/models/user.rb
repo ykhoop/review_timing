@@ -27,4 +27,12 @@ class User < ApplicationRecord
   def has_line?
     authentications.find_by(provider: 'line').present?
   end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["authentications", "subjects", "user_review_settings", "user_setting"]
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["email", "first_name", "last_name", "role"]
+  end
 end

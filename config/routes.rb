@@ -37,6 +37,13 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
+    resources :users, only: %i[index show edit update destroy]
+  end
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

@@ -1,0 +1,80 @@
+:root {
+  --paginate-color: black;
+  --paginate-bg-color: white;
+  --paginate-current-color: white;
+  --paginate-current-bg-color: blue;
+}
+
+
+.app-name {
+  color: #F8CB2E;
+  font-style: italic;
+}
+
+.table-show th {
+  background-color: black;
+  color: white;
+}
+
+.table-show tr {
+  background-color: white;
+  color: black;
+}
+
+.table-edit th {
+  background-color: black;
+  color: white;
+}
+
+.table-edit tr {
+  background-color: white;
+  color: black;
+}
+
+.table-edit td {
+  border: none;
+}
+
+
+.pagination .first {
+  border: solid 1px var(--paginate-bg-color);
+  padding: 5px 10px;
+  color: var(--paginate-color);
+  background-color: var(--paginate-bg-color);
+}
+
+.pagination .prev {
+  border: solid 1px var(--paginate-bg-color);
+  padding: 5px 10px;
+  color: var(--paginate-color);
+  background-color: var(--paginate-bg-color);
+}
+
+.pagination .page {
+  border: solid 1px var(--paginate-bg-color);
+  padding: 5px 10px;
+  color: var(--paginate-color);
+  background-color: var(--paginate-bg-color);
+}
+
+.pagination > .current {
+  border: solid 1px var(--paginate-current-bg-color);
+  padding: 5px 10px;
+  color: var(--paginate-current-color);
+  background-color: var(--paginate-current-bg-color);
+}
+
+.pagination .next {
+  border: solid 1px var(--paginate-bg-color);
+  padding: 5px 10px;
+  color: var(--paginate-color);
+  background-color: var(--paginate-bg-color);
+}
+
+.pagination .last {
+  border: solid 1px var(--paginate-bg-color);
+  padding: 5px 10px;
+  color: var(--paginate-color);
+  background-color: var(--paginate-bg-color);
+}
+
