@@ -1,0 +1,61 @@
+<% content_for(:title, t('.title')) %>
+<h3 class="text-white"><%= t('.title') %></h3>
+<h5 class="text-white text-decoration-underline"><%= t('.reg_cnt') %></h5>
+<% if !(@user_cnt == 0 && @subject_cnt == 0 && @subject_detail_cnt == 0) %>
+  <table class="table border border-secondary table-show my-2 w-25">
+    <tr>
+      <th scope="row"><%= t('.user_cnt') %></th>
+      <td><%= @user_cnt %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('.subject_cnt') %></th>
+      <td><%= @subject_cnt %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('.subject_detail_cnt') %></th>
+      <td><%= @subject_detail_cnt %></td>
+    </tr>
+  </table>
+<% else %>
+  <p class="text-white"><%= t('.no_data') %></p>
+<% end %>
+
+<br>
+<div class="row">
+  <div class="col-3">
+    <h5 class="text-white text-decoration-underline"><%= t('.each_day_user_reg_cnt') %></h5>
+    <% if @each_day_user_reg_cnts.present? %>
+      <table class="table border border-secondary table-show my-2">
+        <% @each_day_user_reg_cnts.each do |each_day_user_reg_cnt| %>
+          <%= render partial: 'each_day_user_reg_cnt', locals: {each_day_user_reg_cnt: each_day_user_reg_cnt} %>
+        <% end %>
+      </table>
+    <% else %>
+      <p class="text-white"><%= t('.no_data_last_one_month') %></p>
+    <% end %>
+  </div>
+  <div class="col-3">
+    <h5 class="text-white text-decoration-underline"><%= t('.each_day_subject_reg_cnt') %></h5>
+    <% if @each_day_subject_reg_cnts.present? %>
+      <table class="table border border-secondary table-show my-2">
+        <% @each_day_subject_reg_cnts.each do |each_day_subject_reg_cnt| %>
+          <%= render partial: 'each_day_subject_reg_cnt', locals: {each_day_subject_reg_cnt: each_day_subject_reg_cnt} %>
+        <% end %>
+      </table>
+    <% else %>
+      <p class="text-white"><%= t('.no_data_last_one_month') %></p>
+    <% end %>
+  </div>
+  <div class="col-3">
+    <h5 class="text-white text-decoration-underline"><%= t('.each_day_subject_detail_reg_cnt') %></h5>
+    <% if @each_day_subject_detail_reg_cnts.present? %>
+      <table class="table border border-secondary table-show my-2">
+        <% @each_day_subject_detail_reg_cnts.each do |each_day_subject_detail_reg_cnt| %>
+          <%= render partial: 'each_day_subject_detail_reg_cnt', locals: {each_day_subject_detail_reg_cnt: each_day_subject_detail_reg_cnt} %>
+        <% end %>
+      </table>
+    <% else %>
+      <p class="text-white"><%= t('.no_data_last_one_month') %></p>
+    <% end %>
+  </div>
+</div>
