@@ -133,3 +133,15 @@ ja:
         fail: 'ユーザー ID: %{item} 更新に失敗しました'
       destroy:
         success: "ユーザー %{item} を削除しました"
+    dashboards:
+      index:
+        title: 'ダッシュボード'
+        reg_cnt: '登録数'
+        user_cnt: 'ユーザー数'
+        subject_cnt: '科目数'
+        subject_detail_cnt: '科目詳細数'
+        each_day_user_reg_cnt: '日別 ユーザー 登録数'
+        each_day_subject_reg_cnt: '日別 科目 登録数'
+        each_day_subject_detail_reg_cnt: '日別 科目詳細 登録数'
+        no_data: 'データがありません'
+        no_data_last_one_month: '過去1ヶ月のデータがありません'

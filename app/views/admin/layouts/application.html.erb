@@ -25,7 +25,7 @@
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
               <a href="#" class="nav-link text-white">
-                Dashboard
+                <%= link_to t('admin.dashboards.index.title'), admin_dashboards_path, class: "nav-link text-white #{@dashboards_menu_active}" %>
               </a>
             </li class="nav-item">
             <li>
