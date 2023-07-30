@@ -18,18 +18,17 @@
     <div class="container-fluild">
       <main>
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <span class="fs-4 app-name"><%= t('defaults.app_name') %></span>
-          </a>
+          <%= link_to t('defaults.app_name'), admin_dashboards_path, class: "fs-4 app-name text-decoration-none" %>
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-              <a href="#" class="nav-link text-white">
-                <%= link_to t('admin.dashboards.index.title'), admin_dashboards_path, class: "nav-link text-white #{@dashboards_menu_active}" %>
-              </a>
+              <%= link_to t('admin.dashboards.index.title'), admin_dashboards_path, class: "nav-link text-white #{@dashboards_menu_active}" %>
             </li class="nav-item">
             <li>
               <%= link_to t('admin.users.index.title'), admin_users_path, class: "nav-link text-white #{@users_menu_active}" %>
+            </li>
+            <li>
+              <%= link_to t('admin.system_review_settings.index.title'), admin_system_review_settings_path, class: "nav-link text-white #{@system_review_settings_menu_active}" %>
             </li>
           </ul>
           <hr>

@@ -145,3 +145,11 @@ ja:
         each_day_subject_detail_reg_cnt: '日別 科目詳細 登録数'
         no_data: 'データがありません'
         no_data_last_one_month: '過去1ヶ月のデータがありません'
+    system_review_settings:
+      index:
+        title: 'システム復習設定'
+        review_number_label: '回目'
+        review_days_label: '日後'
+      update_all:
+        success: 'システム復習設定を更新しました'
+        fail: 'システム復習設定更新に失敗しました'

@@ -7,9 +7,7 @@ class SubjectReview < ApplicationRecord
   enum review_type: { plan: 0, actual: 1 }
 
   def self.create_reviews!(subject_detail, user)
-
-    review_days = UserReviewSetting.review_days(user)
-
+    review_days = user.user_review_settings.order(:review_number).pluck(:review_days)
     2.times do |i|
       4.times do |j|
         subject_review = subject_detail.subject_reviews.build
