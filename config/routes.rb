@@ -43,6 +43,11 @@ Rails.application.routes.draw do
     delete 'logout', to: 'user_sessions#destroy'
     resources :dashboards, only: %i[index]
     resources :users, only: %i[index show edit update destroy]
+    resources :system_review_settings, only: %i[index] do
+      collection do
+        put :update_all
+      end
+    end
   end
 
   if Rails.env.development?

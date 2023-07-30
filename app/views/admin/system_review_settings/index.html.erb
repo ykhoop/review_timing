@@ -1,0 +1,28 @@
+<% content_for(:title, t('.title')) %>
+<h3 class="text-white"><%= t('.title') %></h3>
+<div class="card w-25">
+  <div class="card-body">
+    <%= form_with url: update_all_admin_system_review_settings_path, method: :put do |f| %>
+      <table class="table table-edit my-2">
+        <% @system_review_settings.each do |system_review_setting| %>
+          <%= render 'shared/error_messages', object: system_review_setting %>
+          <tr>
+            <th scope="row" class="bg-primary w-50">
+              <%= "#{system_review_setting.review_number}#{t('.review_number_label')}" %>
+            </th>
+            <td>
+              <%= f.number_field "system_review_setting[#{system_review_setting.id}][review_days]", value: system_review_setting.review_days, class: 'form-control d-inline w-50', min: "1", max: "99" %>
+              <%= t('.review_days_label') %>
+            </td>
+            <td>
+              <%= f.hidden_field "system_review_setting[#{system_review_setting.id}][review_number]", value: system_review_setting.review_number %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+      <div class="text-center">
+        <%= f.submit class: 'btn btn-primary mx-3' %>
+      </div>
+    <% end %>
+  </div>
+</div>

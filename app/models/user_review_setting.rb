@@ -5,20 +5,12 @@ class UserReviewSetting < ApplicationRecord
   validates :review_days, presence: true
 
   def self.create_review_days(user)
+    system_review_days = SystemReviewSetting.order(:review_number).pluck(:review_days)
     4.times do |j|
       user_review_setting = user.user_review_settings.build
       user_review_setting.review_number = j + 1
-      user_review_setting.review_days = j + 1 + 5
+      user_review_setting.review_days = system_review_days[j]
       user_review_setting.save!
     end
   end
-
-  def self.review_days(user)
-    review_days = []
-    4.times do |i|
-      review_days.push(user.user_review_settings.where(review_number: i + 1).first.review_days)
-    end
-    return review_days
-  end
-
 end

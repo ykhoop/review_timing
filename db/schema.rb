@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_21_150545) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_20_132957) do
   create_table "authentications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "provider", null: false
@@ -53,6 +53,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_150545) do
     t.index ["user_id"], name: "index_subjects_on_user_id"
   end
 
+  create_table "system_review_settings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "review_number"
+    t.integer "review_days"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_review_settings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "review_number", null: false
@@ -60,6 +67,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_150545) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_review_settings_on_user_id"
+  end
+
+  create_table "user_settings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.boolean "remind_mail", default: false, null: false
+    t.boolean "remind_line", default: false, null: false
+    t.boolean "remind_browser", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_settings_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -78,4 +95,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_150545) do
   add_foreign_key "subject_reviews", "subject_details"
   add_foreign_key "subjects", "users"
   add_foreign_key "user_review_settings", "users"
+  add_foreign_key "user_settings", "users"
 end
