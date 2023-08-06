@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :password_resets, only: %i[new create edit update]
+
   resources :subjects, only: %i[new create index edit update destroy] do
     resources :subject_details, only: %i[new create index edit update destroy], shallow: true do
       member do
