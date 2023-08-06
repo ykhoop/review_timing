@@ -10,6 +10,7 @@ ja:
     delete: '削除'
     detail: '詳細'
     back: '戻る'
+    send: '送信'
     menu: 'メニュー'
     setting: '設定'
     line_linking: 'LINE連携'
@@ -48,6 +49,26 @@ ja:
     update:
       success: 'ユーザー設定を更新しました'
       fail: 'ユーザー設定更新に失敗しました'
+  password_resets:
+    new:
+      title: 'パスワード再設定'
+      email_label: 'メールアドレス'
+      explanation: 'パスワード再設定メールを送信します。'
+    create:
+      success: 'パスワード再設定メールを送信しました'
+      fail: 'パスワード再設定メール送信に失敗しました'
+    edit:
+      title: 'パスワード再設定'
+    update:
+      success: 'パスワードを再設定しました'
+      fail: 'パスワード再設定に失敗しました'
+      err_msg_token_blank: '更新用のトークンがありません'
+      err_msg_email_blank: 'メールアドレスを入力してください'
+      err_msg_email_not_match: 'メールアドレスが一致しません'
+      err_msg_password_blank: 'パスワードを入力してください'
+    mail:
+      subject: 'パスワード再設定'
+      message: '下記 URL からパスワードを再設定してください。'
   subjects:
     index:
       title: '科目一覧'
