@@ -12,6 +12,7 @@ ja:
     back: '戻る'
     send: '送信'
     menu: 'メニュー'
+    profile: 'プロフィール'
     setting: '設定'
     line_linking: 'LINE連携'
     line_unlinking: 'LINE連携解除'
@@ -49,6 +50,12 @@ ja:
     update:
       success: 'ユーザー設定を更新しました'
       fail: 'ユーザー設定更新に失敗しました'
+  profiles:
+    edit:
+      title: 'プロフィール編集'
+    update:
+      success: 'プロフィールを更新しました'
+      fail: 'プロフィール更新に失敗しました'
   password_resets:
     new:
       title: 'パスワード再設定'
