@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create] do
     collection do
+      get 'profile', to: 'profiles#edit'
+      patch 'update_profile', to: 'profiles#update'
       get 'user_setting', to: 'user_settings#edit'
       patch 'update_user_setting', to: 'user_settings#update'
       get 'review_schedule/:ym', to: 'review_schedule#schedule', as: 'review_schedule'
