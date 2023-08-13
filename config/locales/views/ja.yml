@@ -13,6 +13,7 @@ ja:
     send: '送信'
     menu: 'メニュー'
     profile: 'プロフィール'
+    password: 'パスワード変更'
     setting: '設定'
     line_linking: 'LINE連携'
     line_unlinking: 'LINE連携解除'
@@ -56,6 +57,15 @@ ja:
     update:
       success: 'プロフィールを更新しました'
       fail: 'プロフィール更新に失敗しました'
+  passwords:
+    edit:
+      title: 'パスワード変更'
+      explanation: '現在のパスワードと新しいパスワードを入力してください。'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワード変更に失敗しました'
+      err_msg_current_password_not_match: '現在のパスワードを入力してください'
+      err_msg_password_blank: '新しいパスワードを入力してください'
   password_resets:
     new:
       title: 'パスワード再設定'
