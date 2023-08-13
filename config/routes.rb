@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     collection do
       get 'profile', to: 'profiles#edit'
       patch 'update_profile', to: 'profiles#update'
+      get 'password', to: 'passwords#edit'
+      patch 'update_password', to: 'passwords#update'
       get 'user_setting', to: 'user_settings#edit'
       patch 'update_user_setting', to: 'user_settings#update'
       get 'review_schedule/:ym', to: 'review_schedule#schedule', as: 'review_schedule'

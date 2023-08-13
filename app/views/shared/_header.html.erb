@@ -30,6 +30,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-lg-end">
             <%= link_to t('defaults.profile'), profile_users_path, class: 'dropdown-item' %>
+            <%= link_to t('defaults.password'), password_users_path, class: 'dropdown-item' %>
             <%= link_to t('defaults.setting'), user_setting_users_path, class: 'dropdown-item' %>
             <% if (!current_user.has_line?) %>
               <%= link_to t('defaults.line_linking'), oauth_at_provider_users_path(provider: :line), class: 'dropdown-item' %>
