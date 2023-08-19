@@ -22,6 +22,9 @@ ja:
       confirm_logout: 'ログアウトしますか？'
       confirm_line_unlinking: 'LINE連携を解除しますか？'
       confirm_delete: '削除しますか？'
+    terms: '利用規約'
+    privacy_policy: 'プライバシーポリシー'
+    contact: 'お問い合わせ'
   users:
     new:
       title: 'ユーザー登録'
@@ -145,6 +148,11 @@ ja:
     review_number: 'レビュー回数'
     review_number_suffix: '回目'
     review_time: 'レビュー時刻'
+  documents:
+    terms:
+      title: '利用規約'
+    privacy_policy:
+      title: 'プライバシーポリシー'
   admin:
     user_sessions:
       new:

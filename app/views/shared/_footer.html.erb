@@ -1,0 +1,28 @@
+<footer class="site-footer">
+  <div class="site-footer-bottom">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-12 mt-5">
+          <p class="copyright-text">Copyright © 2023 <%= t('defaults.app_name') %>
+        </div>
+
+        <div class="col-lg-8 col-12 mt-lg-5">
+          <ul class="site-footer-links d-flex justify-content-between">
+            <li class="site-footer-link-item">
+              <%= link_to t('defaults.terms'), terms_path, class: 'site-footer-link' %>
+            </li>
+
+            <li class="site-footer-link-item">
+              <%= link_to t('defaults.privacy_policy'), privacy_policy_path, class: 'site-footer-link' %>
+            </li>
+
+            <li class="site-footer-link-item">
+              <%= link_to t('defaults.contact'), "#{Document.contact_url}", class: 'site-footer-link', target: :_blank %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
