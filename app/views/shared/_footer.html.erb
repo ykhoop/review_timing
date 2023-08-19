@@ -18,7 +18,7 @@
             </li>
 
             <li class="site-footer-link-item">
-              <%= link_to t('defaults.contact'), "#{Document.find_by(code: 'contact').content}", class: 'site-footer-link', target: :_blank %>
+              <%= link_to t('defaults.contact'), "#{Document.contact_url}", class: 'site-footer-link', target: :_blank %>
             </li>
           </ul>
         </div>
