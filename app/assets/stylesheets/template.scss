@@ -115,7 +115,7 @@ p {
   font-weight: var(--font-weight-light);
 }
 
-ul li {
+ul,ol li {
   color: var(--p-color);
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-light);
@@ -255,6 +255,19 @@ strong {
   background-color: var(--white-color);
   border-radius: var(--border-radius-medium);
   padding: 45px;
+}
+
+.tab-content-doc {
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-medium);
+  padding: 45px;
+  height: 800px;
+  overflow: hidden;
+}
+
+.tab-content-doc-inner {
+  height: 100%;
+  overflow: auto;
 }
 
 .nav-tabs {
@@ -921,7 +934,7 @@ strong {
 
 .site-footer-bottom {
   border-top: 1px solid #1f1c1c;
-  margin-top: 60px;
+  margin-top: 0;
 }
 
 .site-footer-title {

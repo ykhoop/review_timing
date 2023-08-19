@@ -1,0 +1,14 @@
+<% content_for(:title, t('.title')) %>
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-12 mx-auto">
+        <div class="tab-content-doc shadow-lg">
+          <div class="tab-content-doc-inner">
+            <%= sanitize(@doc.content) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
+  get 'terms', to: 'documents#terms'
+  get 'privacy_policy', to: 'documents#privacy_policy'
+
   resources :users, only: %i[new create] do
     collection do
       get 'profile', to: 'profiles#edit'
