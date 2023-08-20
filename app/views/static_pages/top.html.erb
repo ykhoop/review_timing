@@ -1,5 +1,24 @@
-<div class="top-wrapper">
-  <div class="top-inner-text">
-    <h1><%= t('defaults.app_name') %></h1>
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-12 mx-auto">
+        <h3 class="title-text text-center"><%= t('.how_to_use') %></h3>
+        <div class="tab-content-doc shadow-lg" style="height: 540px;">
+          <div class="tab-content-doc-inner">
+            <% if ! @doc_ex.nil? %>
+              <%= sanitize(@doc_ex.content) %>
+            <% end %>
+              <%= image_tag 'top_diagram_1.png', alt: t('.diagram_1') %>
+              <%= image_tag 'top_diagram_2.png', alt: t('.diagram_2') %>
+              <%= image_tag 'top_diagram_3.png', alt: t('.diagram_3') %>
+              <%= image_tag 'top_diagram_4.png', alt: t('.diagram_4') %>
+              <%= image_tag 'top_diagram_5.png', alt: t('.diagram_5') %>
+            <% if ! @doc_pr.nil? %>
+              <%= sanitize(@doc_pr.content) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>

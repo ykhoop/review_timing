@@ -25,6 +25,14 @@ ja:
     terms: '利用規約'
     privacy_policy: 'プライバシーポリシー'
     contact: 'お問い合わせ'
+  static_pages:
+    top:
+      how_to_use: '使い方'
+      diagram_1: 'ログイン'
+      diagram_2: '科目作成'
+      diagram_3: '日時登録'
+      diagram_4: '復習スケジュール'
+      diagram_5: '通知'
   users:
     new:
       title: 'ユーザー登録'
