@@ -6,6 +6,7 @@ ja:
     add: '追加'
     register: '登録'
     edit: '編集'
+    create: '作成'
     update: '更新'
     delete: '削除'
     detail: '詳細'
@@ -25,6 +26,10 @@ ja:
     terms: '利用規約'
     privacy_policy: 'プライバシーポリシー'
     contact: 'お問い合わせ'
+    placeholder:
+      email: '例）user@example.com'
+      last_name: '例）山田'
+      first_name: '例）太郎'
   static_pages:
     top:
       how_to_use: '使い方'
@@ -59,6 +64,8 @@ ja:
       user_remind_settings_title: 'リマインド通知'
       receive_label: '受け取る'
       not_receive_label: '受け取らない'
+      placeholder:
+        review_days: '例）1'
     update:
       success: 'ユーザー設定を更新しました'
       fail: 'ユーザー設定更新に失敗しました'
@@ -76,6 +83,7 @@ ja:
       success: 'パスワードを変更しました'
       fail: 'パスワード変更に失敗しました'
       err_msg_current_password_not_match: '現在のパスワードを入力してください'
+      err_msg_password_same_as_current_password: '現在のパスワードと同じパスワードは使用できません'
       err_msg_password_blank: '新しいパスワードを入力してください'
   password_resets:
     new:
@@ -113,6 +121,9 @@ ja:
       fail: '科目更新に失敗しました'
     destroy:
       success: "科目 %{item} を削除しました"
+    form:
+      placeholder:
+        title: '例）基本情報技術者'
   subject_details:
     index:
       title: '科目詳細一覧'
@@ -137,6 +148,11 @@ ja:
     update_review_time:
       success: '復習時間を更新しました'
       fail: '復習時間更新に失敗しました'
+    form:
+      placeholder:
+        chapter: '例）第1章'
+        start_page: '例）1'
+        end_page: '例）10'
   review_schedule:
     schedule:
       title: '復習スケジュール'

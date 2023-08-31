@@ -27,9 +27,12 @@ class SubjectDetailsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @subject = @subject_detail.subject
+  end
 
   def update
+    @subject = @subject_detail.subject
     if @subject_detail.update(update_subject_detail_params)
       redirect_to subject_subject_details_path(@subject_detail.subject_id), success: t('.success')
     else

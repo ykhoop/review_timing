@@ -3,29 +3,28 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-12 mx-auto">
-        <h2 class="service-main-color text-center fst-italic"><%= t('defaults.app_name') %></h2>
         <h3 class="title-text text-center"><%= t('.title') %></h3>
-        <div class="tab-content shadow-lg custom-login">
+        <div class="tab-content shadow-lg">
           <%= form_with model: @user, local: true do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
             <div class="form-group mb-3">
-              <%= f.label :last_name %>
-              <%= f.text_field :last_name, class: 'form-control' %>
+              <%= f.label :last_name, class: 'required' %>
+              <%= f.text_field :last_name, class: 'form-control', placeholder: t('defaults.placeholder.last_name') %>
             </div>
             <div class="form-group mb-3">
-              <%= f.label :first_name %>
-              <%= f.text_field :first_name, class: 'form-control' %>
+              <%= f.label :first_name, class: 'required' %>
+              <%= f.text_field :first_name, class: 'form-control', placeholder: t('defaults.placeholder.first_name') %>
             </div>
             <div class="form-group mb-3">
-              <%= f.label :email %>
-              <%= f.email_field :email, class: 'form-control' %>
+              <%= f.label :email, class: 'required' %>
+              <%= f.email_field :email, class: 'form-control', placeholder: t('defaults.placeholder.email') %>
             </div>
             <div class="form-group mb-3">
-              <%= f.label :password %>
+              <%= f.label :password, class: 'required' %>
               <%= f.password_field :password, class: 'form-control' %>
             </div>
             <div class="form-group mb-3">
-              <%= f.label :password_confirmation %>
+              <%= f.label :password_confirmation, class: 'required' %>
               <%= f.password_field :password_confirmation, class: 'form-control' %>
             </div>
             <div class="text-center mb-3">

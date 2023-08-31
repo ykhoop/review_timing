@@ -17,6 +17,11 @@ class PasswordsController < ApplicationController
       return
     end
 
+    if current_password == password
+      render_when_update_fail(t('.err_msg_password_same_as_current_password'))
+      return
+    end
+
     if @user.update(user_params)
       redirect_to password_users_path, success: t('.success')
     else

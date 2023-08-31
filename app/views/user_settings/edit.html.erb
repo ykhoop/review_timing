@@ -2,12 +2,12 @@
 <section class="section-padding">
   <div class="container">
     <div class="row">
-      <div class="col-6 mx-auto">
+      <div class="col-lg-8 col-12 mx-auto">
         <h3 class="title-text text-center"><%= t('.title') %></h3>
         <div class="tab-content shadow-lg">
           <%= form_with model: @user, url: update_user_setting_users_path do |f| %>
 
-            <p class="label-text mb-2"><%= t('.user_review_settings_title') %></p>
+            <p class="label-text required mb-2"><%= t('.user_review_settings_title') %></p>
 
             <%= f.fields_for :user_review_settings, @user_review_settings do |s_f| %>
               <%= render 'shared/error_messages', object: s_f.object %>
@@ -16,20 +16,20 @@
                 <div class="row d-flex align-items-center">
                   <div class="col-1">
                   </div>
-                  <div class="col-2">
+                  <div class="col-1">
                     <%= "#{s_f.object.review_number}#{t('.review_number_label')}" %>
                   </div>
-                  <div class="col-2">
-                    <%= s_f.number_field  :review_days, class: 'form-control', min: "1", max: "99" %>
+                  <div class="col-3">
+                    <%= s_f.number_field :review_days, class: 'form-control', min: "1", max: "99", placeholder: t('.placeholder.review_days') %>
                   </div>
-                  <div class="col-2">
+                  <div class="col-3">
                     <%= t('.review_days_label') %>
                   </div>
                 </div>
               </div>
             <% end %>
 
-            <p class="label-text mb-2"><%= t('.user_remind_settings_title') %></p>
+            <p class="label-text required mb-2"><%= t('.user_remind_settings_title') %></p>
 
             <%= f.fields_for :user_setting, @user_setting do |s_f| %>
               <%= render 'shared/error_messages', object: s_f.object %>
@@ -78,11 +78,11 @@
                     <%= f.label :remind_browser, UserSetting.human_attribute_name(:remind_browser) %>
                   </div>
                   <div class="col-3">
-                    <%= s_f.radio_button :remind_browser, :browser_receive, class: 'form-check-input', id: 'browser_receive' %>
+                    <%= s_f.radio_button :remind_browser, :browser_receive, disabled: true, class: 'form-check-input', id: 'browser_receive' %>
                     <label class="form-check-label" for="browser_receive"><%= t('.receive_label')%></label>
                   </div>
                   <div class="col-3">
-                    <%= s_f.radio_button :remind_browser, :browser_not_receive, class: 'form-check-input', id: 'browser_not_receive' %>
+                    <%= s_f.radio_button :remind_browser, :browser_not_receive, disabled: true, class: 'form-check-input', id: 'browser_not_receive' %>
                     <label class="form-check-label" for="browser_not_receive"><%= t('.not_receive_label')%></label>
                   </div>
                 </div>
@@ -90,7 +90,7 @@
             <% end %>
 
             <div class="text-center mb-3">
-              <%= f.submit t('defaults.register'), class: 'btn custom-btn btn-wide' %>
+              <%= f.submit class: 'btn custom-btn btn-wide' %>
             </div>
 
           <% end %>

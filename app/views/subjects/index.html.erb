@@ -4,6 +4,9 @@
     <div class="row">
       <div class="col-12 text-center">
         <h3 class="title-text"><%= t('.title') %></h3>
+        <div class="text-end me-3">
+          <%= link_to t('defaults.add'), new_subject_path, class: 'btn btn-default new-btn my-1 mx-1' %>
+        </div>
         <div class="table-responsive">
           <table class="schedule-table table bg-light table-hover">
             <thead>

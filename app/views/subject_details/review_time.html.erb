@@ -21,7 +21,7 @@
 
             <div class="row">
               <% 4.times do |i| %>
-                <div class="col-3 text-center">
+                <div class="col-xl-3 text-center">
                   <%= "#{i + 1} #{t('.number_label')}" %>
                 </div>
               <% end %>
@@ -49,7 +49,7 @@
                 <% end %>
 
                       <!-- 各復習日時 -->
-                      <div class="col-3">
+                      <div class="col-xl-3">
                         <%= s_f.datetime_field :review_at, class: 'form-control' %>
                       </div>
 
@@ -61,7 +61,8 @@
                   <!-- 最終行のボタン -->
                   <% if s_f.object.review_type == 'actual' %>
                     <div class="text-center mb-3">
-                      <%= f.submit t('defaults.register'), class: 'btn custom-btn btn-wide' %>
+                      <%= link_to t('defaults.back'), subject_subject_details_path(@subject_detail.subject), class: 'btn back-btn btn-wide my-2 mx-5' %>
+                      <%= f.submit class: 'btn custom-btn btn-wide my-2 mx-5' %>
                     </div>
                   <% end %>
 

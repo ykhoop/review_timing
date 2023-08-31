@@ -1,15 +1,15 @@
 <div class="tab-content shadow-lg">
-    <%= form_with model: subject, local: true, class:'custom-form mb-5 mb-lg-0' do |f| %>
+    <%= form_with model: subject, local: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <div class="form-group mb-3">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: 'form-control' %>
+        <%= f.label :title, class: 'required' %>
+        <%= f.text_field :title, class: 'form-control', placeholder: t('.placeholder.title') %>
       </div>
-      <div class="form-group mb-3 w-50">
+      <div class="form-group mb-3">
         <%= f.label :start_at %>
         <%= f.datetime_field :start_at, class: 'form-control' %>
       </div>
-      <div class="form-group mb-3 w-50">
+      <div class="form-group mb-3">
         <%= f.label :limit_at %>
         <%= f.datetime_field :limit_at, class: 'form-control' %>
       </div>
@@ -18,7 +18,8 @@
         <%= f.text_area :memo, class: 'form-control', rows: 10 %>
       </div>
       <div class="text-center mb-3">
-        <%= f.submit t('defaults.register'), class: 'btn custom-btn btn-wide' %>
+        <%= link_to t('defaults.back'), subjects_path, class: 'btn back-btn btn-wide my-2 mx-5' %>
+        <%= f.submit class: 'btn custom-btn btn-wide my-2 mx-5' %>
       </div>
     <% end %>
 </div>
