@@ -1,26 +1,27 @@
 <%= render 'shared/error_messages', object: f.object %>
 <div class="form-group mb-3">
-  <%= f.label :chapter %>
-  <%= f.text_field :chapter, class: 'form-control' %>
+  <%= f.label :chapter, class: 'required' %>
+  <%= f.text_field :chapter, class: 'form-control', placeholder: t('.placeholder.chapter') %>
 </div>
 <div class="row">
   <div class="col-3">
     <div class="form-group mb-3">
-      <%= f.label :start_page %>
-      <%= f.number_field :start_page, class: 'form-control' %>
+      <%= f.label :start_page, class: 'required' %>
+      <%= f.number_field :start_page, class: 'form-control', placeholder: t('.placeholder.start_page') %>
     </div>
   </div>
   <div class="col-3">
     <div class="form-group mb-3">
-      <%= f.label :end_page %>
-      <%= f.number_field :end_page, class: 'form-control' %>
+      <%= f.label :end_page, class: 'required' %>
+      <%= f.number_field :end_page, class: 'form-control', placeholder: t('.placeholder.end_page') %>
     </div>
   </div>
 </div>
-<div class="form-group mb-3 w-50">
-  <%= f.label :start_at %>
+<div class="form-group mb-3">
+  <%= f.label :start_at, class: 'required' %>
   <%= f.datetime_field :start_at, class: 'form-control' %>
 </div>
 <div class="text-center mb-3">
-  <%= f.submit t('defaults.register'), class: 'btn custom-btn btn-wide' %>
+  <%= link_to t('defaults.back'), subject_subject_details_path(@subject), class: 'btn back-btn btn-wide my-2 mx-5' %>
+  <%= f.submit class: 'btn custom-btn btn-wide my-2 mx-5' %>
 </div>

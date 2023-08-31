@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  get 'authentications/show'
-  get 'oauths/oauth'
-  get 'oauths/callback'
-  get 'subjects/create'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-
   root 'static_pages#top'
 
   get 'login', to: 'user_sessions#new'

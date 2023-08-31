@@ -1,15 +1,15 @@
 <% content_for(:title, t('.title')) %>
 <section class="section-padding">
   <div class="container-fluid">
-    <div class="row mx-auto" style="width: 1720px;">
+    <div class="row mx-auto">
       <div class="col-12 text-center">
 
         <h3 class="title-text"><%= t('.title') %></h3>
 
-        <div class="text-end me-3 mb-2">
-          <%= link_to t('.prev_month'), review_schedule_users_path(@prev_ym), class: 'btn btn-default detail-btn me-3' %>
-          <span class="btn btn-default detail-btn me-3"><%= "#{@this_y}.#{@this_m}" %></span>
-          <%= link_to t('.next_month'), review_schedule_users_path(@next_ym), class: 'btn btn-default detail-btn' %>
+        <div class="text-end me-3">
+          <%= link_to t('.prev_month'), review_schedule_users_path(@prev_ym), class: 'btn btn-default detail-btn my-1 mx-1' %>
+          <span class="btn btn-default detail-btn my-1 mx-1"><%= "#{@this_y}.#{@this_m}" %></span>
+          <%= link_to t('.next_month'), review_schedule_users_path(@next_ym), class: 'btn btn-default detail-btn my-1 mx-1' %>
         </div>
 
         <div class="table-responsive">

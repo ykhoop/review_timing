@@ -26,7 +26,7 @@ ja:
       user_setting:
         remind_mail: 'メール'
         remind_line: 'LINE'
-        remind_browser: 'ブラウザプッシュ'
+        remind_browser: 'ブラウザプッシュ(工事中)'
       subject:
         title: 'タイトル'
         start_at: '学習開始日時'
@@ -45,9 +45,18 @@ ja:
       system_review_setting:
         review_number: '復習回数'
         review_days: '復習日数'
-
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              not_included_up_low_alpha_num: 'はアルファベット大文字、小文字、数字をそれぞれ１つ以上含む必要があります。'
   enums:
     user:
       role:
         general: '一般'
         admin: '管理者'
+  helpers:
+    submit:
+      create: "登録"
+      update: "更新"

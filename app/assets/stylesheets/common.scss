@@ -1,8 +1,7 @@
 .background {
   width: 100%;
-  height: 100vh;
-  // background-image: url('background-image1.jpg');
-  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-repeat: repeat;
   background-size: 100% 100%;
 }
 
@@ -37,50 +36,9 @@
   color: var(--link-color);
 }
 
-.custom-login {
-  margin: 0 100px;
-}
-
 .btn-wide {
   width: 150px;
 }
-
-// .first {
-//   border: solid 1px var(--dark-color);
-//   padding: 5px 10px;
-//   background-color: var(--dark-color);
-// }
-
-// .prev {
-//   border: solid 1px var(--dark-color);
-//   padding: 5px 10px;
-//   background-color: var(--dark-color);
-// }
-
-// .page {
-//   border: solid 1px var(--dark-color);
-//   padding: 5px 10px;
-//   background-color: var(--dark-color);
-// }
-
-// .page.current {
-//   border: solid 1px var(--dark-color);
-//   padding: 5px 10px;
-//   background-color: var(--white-color);
-// }
-
-// .next {
-//   border: solid 1px var(--dark-color);
-//   padding: 5px 10px;
-//   background-color: var(--dark-color);
-// }
-
-// .last {
-//   border: solid 1px var(--dark-color);
-//   padding: 5px 10px;
-//   border-radius: 0 25% 25% 0;
-//   background-color: var(--dark-color);
-// }
 
 .pagination span {
   border: solid 1px var(--dark-color);
@@ -99,10 +57,13 @@
 .pagination .current {
   background-color: var(--white-color);
 }
-// .subject-bg-color {
-//   background-color: #b7eefc;
-// }
 
-// .mt-common {
-//   margin-top: 50px;
-// }
+.required:after {
+  color: var(--required-color);
+  content: " *";
+}
+
+::placeholder {
+  color: var(--placeholder-color);
+  font-style: italic;
+}
