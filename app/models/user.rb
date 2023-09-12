@@ -9,13 +9,12 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :authentications
   accepts_nested_attributes_for :user_setting
 
-  validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
+  validates :password, presence: true, length: { minimum: 8, maximum: 255 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates_format_of :password, with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*\z/, message: :not_included_up_low_alpha_num, if: -> { new_record? || changes[:crypted_password] }
 
-  validates :email, uniqueness: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true, length: { maximum: 255 }
   validates :first_name, presence: true, length: { maximum: 255 }
   validates :last_name, presence: true, length: { maximum: 255 }
 
@@ -30,10 +29,10 @@ class User < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    ["authentications", "subjects", "user_review_settings", "user_setting"]
+    %w[authentications subjects user_review_settings user_setting]
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    ["email", "first_name", "last_name", "role"]
+    %w[email first_name last_name role]
   end
 end

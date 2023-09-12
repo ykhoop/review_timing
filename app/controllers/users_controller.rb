@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
 
       # ここで、user_review_setting、user_settingを作成する
-      UserReviewSetting.create_review_days(@user)
+      UserReviewSetting.create_review_days!(@user)
       @user.build_user_setting.save!
 
       redirect_to login_path, success: t('.success')
