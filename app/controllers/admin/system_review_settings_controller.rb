@@ -2,7 +2,7 @@ class Admin::SystemReviewSettingsController < Admin::BaseController
   before_action :set_system_review_settings_menu_active, only: %i[index]
 
   def index
-    @system_review_settings = SystemReviewSetting.all
+    @system_review_settings = SystemReviewSetting.all.order(:review_number)
   end
 
   def update_all
