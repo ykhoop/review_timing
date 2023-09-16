@@ -2,19 +2,25 @@ require 'rails_helper'
 
 RSpec.describe SubjectReview, type: :model do
   describe 'バリデーション' do
-    it '復習タイプ、復習回数がある場合、登録できる' do
-      subject_review = FactoryBot.build(:subject_review)
-      expect(subject_review).to be_valid
+    context '復習タイプ、復習回数がある場合' do
+      it '復習時間を登録できる' do
+        subject_review = FactoryBot.build(:subject_review)
+        expect(subject_review).to be_valid
+      end
     end
 
-    it '復習タイプがない場合、登録できない' do
-      subject_review = FactoryBot.build(:subject_review, review_type: nil)
-      expect(subject_review).to be_invalid
+    context '復習タイプがない場合' do
+      it '復習時間を登録できない' do
+        subject_review = FactoryBot.build(:subject_review, review_type: nil)
+        expect(subject_review).to be_invalid
+      end
     end
 
-    it '復習回数がない場合、登録できない' do
-      subject_review = FactoryBot.build(:subject_review, review_number: nil)
-      expect(subject_review).to be_invalid
+    context '復習回数がない場合' do
+      it '復習時間を登録できない' do
+        subject_review = FactoryBot.build(:subject_review, review_number: nil)
+        expect(subject_review).to be_invalid
+      end
     end
   end
 

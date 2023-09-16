@@ -2,24 +2,32 @@ require 'rails_helper'
 
 RSpec.describe UserReviewSetting, type: :model do
   describe 'バリデーション' do
-    it 'ユーザー、レビュー回数、レビュー日数がある場合、登録できる' do
-      user_review_setting = FactoryBot.build(:user_review_setting)
-      expect(user_review_setting).to be_valid
+    context 'ユーザー、レビュー回数、レビュー日数がある場合' do
+      it '復習設定を登録できる' do
+        user_review_setting = FactoryBot.build(:user_review_setting)
+        expect(user_review_setting).to be_valid
+      end
     end
 
-    it 'ユーザーがない場合、登録できない' do
-      user_review_setting = FactoryBot.build(:user_review_setting, user: nil)
-      expect(user_review_setting).to be_invalid
+    context 'ユーザーがない場合' do
+      it '復習設定を登録できない' do
+        user_review_setting = FactoryBot.build(:user_review_setting, user: nil)
+        expect(user_review_setting).to be_invalid
+      end
     end
 
-    it 'レビュー回数がない場合、登録できない' do
-      user_review_setting = FactoryBot.build(:user_review_setting, review_number: nil)
-      expect(user_review_setting).to be_invalid
+    context 'レビュー回数がない場合' do
+      it '復習設定を登録できない' do
+        user_review_setting = FactoryBot.build(:user_review_setting, review_number: nil)
+        expect(user_review_setting).to be_invalid
+      end
     end
 
-    it 'レビュー日数がない場合、登録できない' do
-      user_review_setting = FactoryBot.build(:user_review_setting, review_days: nil)
-      expect(user_review_setting).to be_invalid
+    context 'レビュー日数がない場合' do
+      it '復習設定を登録できない' do
+        user_review_setting = FactoryBot.build(:user_review_setting, review_days: nil)
+        expect(user_review_setting).to be_invalid
+      end
     end
   end
 

@@ -50,7 +50,7 @@ ja:
         user:
           attributes:
             password:
-              not_included_up_low_alpha_num: 'はアルファベット大文字、小文字、数字をそれぞれ１つ以上含む必要があります。'
+              not_included_up_low_alpha_num: 'はアルファベット大文字、小文字、数字をそれぞれ１つ以上含む必要があります'
   enums:
     user:
       role:

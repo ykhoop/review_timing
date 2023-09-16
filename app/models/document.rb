@@ -1,5 +1,5 @@
 class Document < ApplicationRecord
-  validates :code, presence: true
+  validates :code, presence: true, uniqueness: true
   validates :description, presence: true
   validates :content, presence: true
 
