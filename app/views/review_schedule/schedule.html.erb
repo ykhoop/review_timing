@@ -3,29 +3,24 @@
   <div class="container-fluid">
     <div class="row mx-auto">
       <div class="col-12 text-center">
-
         <h3 class="title-text"><%= t('.title') %></h3>
-
         <div class="text-end me-3">
           <%= link_to t('.prev_month'), review_schedule_users_path(@prev_ym), class: 'btn btn-default detail-btn my-1 mx-1' %>
-          <span class="btn btn-default detail-btn my-1 mx-1"><%= "#{@this_y}.#{@this_m}" %></span>
+          <span class="btn btn-default detail-btn my-1 mx-1"><%= "#{@curt_y}.#{@curt_m}" %></span>
           <%= link_to t('.next_month'), review_schedule_users_path(@next_ym), class: 'btn btn-default detail-btn my-1 mx-1' %>
         </div>
-
         <div class="table-responsive">
           <table class="schedule-table table bg-light table-hover">
-
             <thead>
               <tr>
                 <th scope="col"><%= t('.label_title') %></th>
                 <th scope="col"><%= t('.label_chapter') %></th>
                 <th scope="col" colspan="3"><%= t('.label_page') %></th>
-                <% @this_end_day.times do |i| %>
+                <% @curt_ym_end_day.times do |i| %>
                   <th scope="col" style="width: 24px;"><%= i + 1 %></th>
                 <% end %>
               </tr>
             </thead>
-
             <tbody>
               <% if @user_schedules.present? %>
                 <% @user_schedules.each do |schedule| %>
@@ -35,22 +30,20 @@
                     <td><%= schedule['start_page'] %></td>
                     <td class="p-0">～</td>
                     <td><%= schedule['end_page'] %></td>
-                    <% @this_end_day.times do |i| %>
+                    <% @curt_ym_end_day.times do |i| %>
                       <td><%= schedule[i + 1] %></td>
                     <% end %>
                   </tr>
                 <% end %>
               <% else %>
                 <tr>
-                  <td colspan="<%= 5 + @this_end_day %>" class="text-center"><%= t('.no_schedule') %></td>
+                  <td colspan="<%= 5 + @curt_ym_end_day %>" class="text-center"><%= t('.no_schedule') %></td>
                 </tr>
               <% end %>
             </tbody>
-
           </table>
           <%= paginate @user_schedules %>
         </div>
-
       </div>
   </div>
 </section>

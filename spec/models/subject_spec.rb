@@ -39,20 +39,20 @@ RSpec.describe Subject, type: :model do
     end
 
     describe 'メモ' do
-      context '65,535文字以下の場合' do
+      context '20,000文字以下の場合' do
         it '科目を登録できる' do
-          subject = FactoryBot.build(:subject, memo: 'a' * 65_535)
+          subject = FactoryBot.build(:subject, memo: 'a' * 20_000)
           expect(subject).to be_valid
-          subject = FactoryBot.build(:subject, memo: 'あ' * 65_535)
+          subject = FactoryBot.build(:subject, memo: 'あ' * 20_000)
           expect(subject).to be_valid
         end
       end
 
-      context '65,536文字以上の場合' do
+      context '20,001文字以上の場合' do
         it '科目を登録できない' do
-          subject = FactoryBot.build(:subject, memo: 'a' * 65_536)
+          subject = FactoryBot.build(:subject, memo: 'a' * 20_001)
           expect(subject).to be_invalid
-          subject = FactoryBot.build(:subject, memo: 'あ' * 65_536)
+          subject = FactoryBot.build(:subject, memo: 'あ' * 20_001)
           expect(subject).to be_invalid
         end
       end

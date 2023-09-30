@@ -66,7 +66,8 @@ group :development do
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem "spring"
+  gem 'spring-commands-rspec'
   gem 'letter_opener_web'
   gem 'rubocop', require: false
 end

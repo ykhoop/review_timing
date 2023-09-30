@@ -328,6 +328,9 @@ GEM
       bcrypt (~> 3.1)
       oauth (~> 0.5, >= 0.5.5)
       oauth2 (~> 2.0)
+    spring (4.1.1)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -395,6 +398,8 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   sorcery
+  spring
+  spring-commands-rspec
   sprockets-rails
   stimulus-rails
   turbo-rails

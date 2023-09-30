@@ -5,9 +5,7 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:email])
-
     @user.deliver_reset_password_instructions! if @user
-
     redirect_to root_path, success: t('.success')
   end
 
@@ -35,7 +33,7 @@ class PasswordResetsController < ApplicationController
     end
 
     if @token.blank?
-      render_when_update_fail(t('.err_msg_token_blank'))
+      not_authenticated
       return
     end
 

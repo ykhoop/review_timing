@@ -5,7 +5,6 @@
       <div class="col-10 mx-auto">
         <h3 class="title-text text-center"><%= t('.title') %></h3>
           <div class="tab-content shadow-lg">
-
             <div class="mb-3">
               <span class="label-text">
                 <%= "#{Subject.human_attribute_name(:title)}:" %>
@@ -18,7 +17,6 @@
               </span>
               <%= @subject_detail.chapter %>
             </div>
-
             <div class="row">
               <% 4.times do |i| %>
                 <div class="col-xl-3 text-center">
@@ -26,38 +24,29 @@
                 </div>
               <% end %>
             </div>
-
             <!-- 科目詳細のフォーム -->
             <%= form_with model: @subject_detail, url: update_review_time_subject_detail_path(@subject_detail) do |f| %>
-
               <!-- 科目復習のフォーム -->
               <%= f.fields_for :subject_reviews, @subject_reviews do |s_f| %>
-
-                <!-- 科目復習のタブ -->
+                <!-- 科目復習のエリア -->
                 <% if s_f.object.review_number == 1 %>
-
                   <div class="form-group mb-3">
-
                   <% if s_f.object.review_type == 'plan' %>
                     <%= t('.plan') %>
                   <% else %>
                     <%= t('.actual') %>
                   <% end %>
-
                     <div class="row">
-
                 <% end %>
-
                       <!-- 各復習日時 -->
                       <div class="col-xl-3">
                         <%= s_f.datetime_field :review_at, class: 'form-control' %>
                       </div>
-
                 <% if s_f.object.review_number == 4 %>
- 
-                    </div>  <!-- rowの閉じタグ -->
-                  </div>  <!-- form-groupの閉じタグ -->
-
+                    <!-- rowの閉じタグ -->
+                    </div>
+                  <!-- form-groupの閉じタグ -->
+                  </div>
                   <!-- 最終行のボタン -->
                   <% if s_f.object.review_type == 'actual' %>
                     <div class="text-center mb-3">
@@ -65,11 +54,9 @@
                       <%= f.submit class: 'btn custom-btn btn-wide my-2 mx-5' %>
                     </div>
                   <% end %>
-
                 <% end %>
               <% end %>
             <% end %>
-
           </div>
         </div>
       </div>
