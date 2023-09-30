@@ -19,9 +19,12 @@ class SubjectsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @subject || logout && redirect_to(login_path, warning: t('defaults.message.require_login')) && return
+  end
 
   def update
+    @subject || logout && redirect_to(login_path, warning: t('defaults.message.require_login')) && return
     if @subject.update(subject_params)
       redirect_to subjects_path, success: t('.success')
     else
@@ -31,6 +34,7 @@ class SubjectsController < ApplicationController
   end
 
   def destroy
+    @subject || logout && redirect_to(login_path, warning: t('defaults.message.require_login')) && return
     @subject.destroy!
     redirect_to subjects_path, success: t('.success', item: @subject.title)
   end
@@ -38,7 +42,8 @@ class SubjectsController < ApplicationController
   private
 
   def set_subcject
-    @subject = current_user.subjects.find(params[:id])
+    @subject = Subject.find(params[:id])
+    @subject = nil unless current_user.own?(@subject)
   end
 
   def subject_params

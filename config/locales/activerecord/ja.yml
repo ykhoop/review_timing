@@ -51,6 +51,12 @@ ja:
           attributes:
             password:
               not_included_up_low_alpha_num: 'はアルファベット大文字、小文字、数字をそれぞれ１つ以上含む必要があります'
+        subject_detail:
+          attributes:
+            start_page:
+              in: 'は 1 ～ 10000 の値を入力してください'
+            end_page:
+              in: 'は 1 ～ 10000 の値を入力してください'
   enums:
     user:
       role:

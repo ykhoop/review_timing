@@ -23,7 +23,8 @@ class UserSettingsController < ApplicationController
   end
 
   def update_user_review_setting_params
-    params.require(:user).permit(user_review_settings_attributes: [:id, :review_days], user_setting_attributes: [:id, :remind_mail, :remind_line, :remind_browser])
+    params.require(:user).permit(user_review_settings_attributes: %i[id review_days],
+                                 user_setting_attributes: %i[id remind_mail
+                                                             remind_line remind_browser])
   end
-
 end

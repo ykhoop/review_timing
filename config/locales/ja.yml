@@ -2,3 +2,4 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+      custom: "%Y-%m-%dT%H:%M:%S"

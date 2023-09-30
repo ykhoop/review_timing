@@ -8,7 +8,7 @@
           <h6 class="mb-3"><%= t('.explanation') %></h6>
           <%= form_with url: password_resets_path, local: true, method: :post do |f| %>
             <div class="form-group mb-3">
-              <%= f.label t('.email_label'), class: 'required' %>
+              <%= f.label :email, t('.email_label'), class: 'required' %>
               <%= f.text_field :email, class: 'form-control', placeholder: t('defaults.placeholder.email') %>
             </div>
             <div class="text-center mb-3">

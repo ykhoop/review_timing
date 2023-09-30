@@ -27,8 +27,8 @@ ja:
     privacy_policy: 'プライバシーポリシー'
     contact: 'お問い合わせ'
     placeholder:
-      email: '例）user@example.com'
-      last_name: '例）山田'
+      email: '例）test@example.com'
+      last_name: '例）テスト'
       first_name: '例）太郎'
   static_pages:
     top:
@@ -98,7 +98,6 @@ ja:
     update:
       success: 'パスワードを再設定しました'
       fail: 'パスワード再設定に失敗しました'
-      err_msg_token_blank: '更新用のトークンがありません'
       err_msg_email_blank: 'メールアドレスを入力してください'
       err_msg_email_not_match: 'メールアドレスが一致しません'
       err_msg_password_blank: 'パスワードを入力してください'

@@ -26,7 +26,7 @@
 
         <li class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="header-profile">
-            <%= "#{current_user.first_name} #{current_user.last_name}" %>
+            <%= "#{current_user.last_name} #{current_user.first_name}" %>
           </a>
           <div class="dropdown-menu dropdown-menu-lg-end">
             <%= link_to t('defaults.profile'), profile_users_path, class: 'dropdown-item' %>
