@@ -45,6 +45,7 @@ ja:
     create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
+      max_users_exceeded: 'ユーザー登録数が上限に達しており、登録できません。お手数ですが、お問い合わせフォームよりご連絡ください。'
   user_sessions:
     new:
       title: 'ログイン'
@@ -104,6 +105,7 @@ ja:
     mail:
       subject: 'パスワード再設定'
       message: '下記 URL からパスワードを再設定してください。'
+      not_reply_message: 'こちらは送信専用メールアドレスです。ご返信いただいてもお答えできませんのでご了承ください。'
   subjects:
     index:
       title: '科目一覧'
@@ -113,6 +115,7 @@ ja:
     create:
       success: '科目を作成しました'
       fail: '科目作成に失敗しました'
+      max_subjects_exceeded: '科目数が上限に達しており、登録できません。お手数ですが、お問い合わせフォームよりご連絡ください。'
     edit:
       title: '科目編集'
     update:
@@ -132,6 +135,7 @@ ja:
     create:
       success: '科目詳細を作成しました'
       fail: '科目詳細作成に失敗しました'
+      max_subject_details_exceeded: '科目詳細数が上限に達しており、登録できません。お手数ですが、お問い合わせフォームよりご連絡ください。'
     edit:
       title: '科目詳細編集'
     update:
@@ -161,16 +165,6 @@ ja:
       label_page: 'ページ'
       prev_month: '前月'
       next_month: '次月'
-  notifications:
-    title: 'Review Timing 通知'
-    body_title: '【レビュー通知】'
-    message: '下記科目が本日の復習の対象です。'
-    chapter: '章'
-    page: 'ページ'
-    start_date: '学習開始日'
-    review_number: 'レビュー回数'
-    review_number_suffix: '回目'
-    review_time: 'レビュー時刻'
   documents:
     terms:
       title: '利用規約'
@@ -222,3 +216,5 @@ ja:
       update_all:
         success: 'システム復習設定を更新しました'
         fail: 'システム復習設定更新に失敗しました'
+  notification_mailer:
+    not_reply_message: 'こちらは送信専用メールアドレスです。ご返信いただいてもお答えできませんのでご了承ください。'

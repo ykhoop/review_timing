@@ -10,6 +10,11 @@ class SubjectsController < ApplicationController
   end
 
   def create
+    if current_user.subjects.count >= current_user.user_setting.max_subjects
+      redirect_to subjects_path, danger: t('.max_subjects_exceeded')
+      return
+    end
+
     @subject = current_user.subjects.build(subject_params)
     if @subject.save
       redirect_to subjects_path, success: t('.success')
