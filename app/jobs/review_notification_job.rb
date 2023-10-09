@@ -15,6 +15,8 @@ class ReviewNotificationJob < ApplicationJob
   def self.send_notification(medium)
     today = Date.today.midnight.in_time_zone(TIME_ZONE_OF_DB)
     tomorrow = Date.tomorrow.midnight.in_time_zone(TIME_ZONE_OF_DB)
+    interval = SystemSetting.notification_interval
+    interval = interval.to_f / 1000
 
     notification_recs = User.joins(:user_setting, subjects: { subject_details: :subject_reviews })
                             .select('
@@ -39,6 +41,7 @@ class ReviewNotificationJob < ApplicationJob
                                     , subject_details.id
                                     , subject_reviews.review_number
                                   ')
+                            .where(subject_reviews: { review_type: :plan })
                             .where(subject_reviews: { review_at: today...tomorrow })
 
                             case medium
@@ -67,9 +70,11 @@ class ReviewNotificationJob < ApplicationJob
         if pre_user_id != ''
           case medium
           when 'line'
-            push_line(pre_uid, msg_text)
+            push_line(pre_uid, msg_text, interval)
+            save_db_log('send_notification', medium, pre_user_id, I18n.t('notifications.line_sent_message'))
           when 'mail'
-            send_mail(pre_email, msg_text)
+            send_mail(pre_email, msg_text, interval)
+            save_db_log('send_notification', medium, pre_user_id, I18n.t('notifications.mail_sent_message'))
           end
         end
 
@@ -98,18 +103,22 @@ class ReviewNotificationJob < ApplicationJob
       # メッセージがある場合は最後のユーザーにメッセージを送信
       case medium
       when 'line' then
-        push_line(pre_uid, msg_text)
+        push_line(pre_uid, msg_text, interval)
+        save_db_log('send_notification', medium, pre_user_id, I18n.t('notifications.line_sent_message'))
       when 'mail' then
-        send_mail(pre_email, msg_text)
+        send_mail(pre_email, msg_text, interval)
+        save_db_log('send_notification', medium, pre_user_id, I18n.t('notifications.mail_sent_message'))
       end
     end
   end
 
-  def self.send_mail(email, msg_text)
+  def self.send_mail(email, msg_text, interval = 1.0)
+    sleep interval
     NotificationMailer.review_notification(email, msg_text).deliver_now
   end
 
-  def self.push_line(uid, msg_text)
+  def self.push_line(uid, msg_text, interval = 1.0)
+    sleep interval
     message = {
       type: 'text',
       text: msg_text
@@ -122,5 +131,12 @@ class ReviewNotificationJob < ApplicationJob
       config.channel_secret = Rails.application.credentials.dig(:line, :push_channel_secret)
       config.channel_token = Rails.application.credentials.dig(:line, :push_channel_token)
     end
+  end
+
+  def self.save_db_log(method, medium, user_id, msg_text)
+    log_level = :info
+    program = "ReviewNotificationJob.#{method}"
+    log_content = "medium:#{medium},user_id:#{user_id},msg_text:#{msg_text}"
+    Log.logger!(log_level, program, log_content)
   end
 end

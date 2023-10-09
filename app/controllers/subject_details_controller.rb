@@ -11,6 +11,11 @@ class SubjectDetailsController < ApplicationController
   end
 
   def create
+    if @subject.subject_details.count >= current_user.user_setting.max_subject_details
+      redirect_to subject_subject_details_path(@subject.id), danger: t('.max_subject_details_exceeded')
+      return
+    end
+
     @subject_detail = SubjectDetail.new(subject_detail_params)
     if @subject_detail.save
       SubjectReview.create_reviews!(@subject_detail, current_user)

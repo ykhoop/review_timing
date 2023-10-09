@@ -3,3 +3,15 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       custom: "%Y-%m-%dT%H:%M:%S"
+  notifications:
+    title: 'Review Timing 通知'
+    body_title: '【レビュー通知】'
+    message: '下記科目が本日の復習の対象です。'
+    chapter: '章'
+    page: 'ページ'
+    start_date: '学習開始日'
+    review_number: 'レビュー回数'
+    review_number_suffix: '回目'
+    review_time: 'レビュー時刻'
+    mail_sent_message: 'メールを送信しました'
+    line_sent_message: 'LINE に通知しました'

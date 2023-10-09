@@ -6,10 +6,15 @@ class UsersController < ApplicationController
   end
 
   def create
+    if User.count >= SystemSetting.max_users
+      redirect_to root_path, danger: t('.max_users_exceeded')
+      return
+    end
+
     @user = User.new(user_params)
     if @user.save
       UserReviewSetting.create_review_days!(@user)
-      @user.build_user_setting.save!
+      @user.build_user_setting(max_subjects: SystemSetting.max_user_subjects, max_subject_details: SystemSetting.max_user_subject_details).save!
 
       redirect_to login_path, success: t('.success')
     else
