@@ -60,6 +60,7 @@ ja:
     edit:
       title: '設定'
       user_review_settings_title: '復習期間'
+      review_days_attention: '※日数を設定しない場合は 0 を入力してください。'
       review_number_label: '回目'
       review_days_label: '日後'
       user_remind_settings_title: 'リマインド通知'
