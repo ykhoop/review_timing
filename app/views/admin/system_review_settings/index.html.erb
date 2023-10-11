@@ -11,7 +11,7 @@
               <%= "#{system_review_setting.review_number}#{t('.review_number_label')}" %>
             </th>
             <td>
-              <%= f.number_field "system_review_setting[#{system_review_setting.id}][review_days]", value: system_review_setting.review_days, class: 'form-control d-inline w-50', min: "1", max: "99" %>
+              <%= f.number_field "system_review_setting[#{system_review_setting.id}][review_days]", value: system_review_setting.review_days, class: 'form-control d-inline w-50', min: "0", max: "99" %>
               <%= t('.review_days_label') %>
             </td>
             <td>

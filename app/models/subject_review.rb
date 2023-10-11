@@ -13,7 +13,7 @@ class SubjectReview < ApplicationRecord
         subject_review = subject_detail.subject_reviews.build
         subject_review.review_type = i
         subject_review.review_number = j + 1
-        i == 0 ? subject_review.review_at = subject_detail.start_at + review_days[j].days : nil
+        i == 0 && review_days[j].days != 0 ? subject_review.review_at = subject_detail.start_at + review_days[j].days : nil
         subject_review.save!
       end
     end
