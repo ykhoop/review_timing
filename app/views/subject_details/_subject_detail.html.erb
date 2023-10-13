@@ -4,9 +4,9 @@
   <td><%= I18n.ln(subject_detail.start_at) %></td>
   <td>
     <div class="text-center">
-      <%= link_to t('defaults.delete'), subject_detail_path(subject_detail), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.confirm_delete') }, class: 'btn btn-default del-btn my-1 mx-1' %>
-      <%= link_to t('subject_details.review_time.title'), review_time_subject_detail_path(subject_detail), class: 'btn btn-default detail-btn my-1 mx-1' %>
+      <%= link_to "#{SubjectReview.model_name.human}", review_time_subject_detail_path(subject_detail), class: 'btn btn-default detail-btn my-1 mx-1' %>
       <%= link_to t('defaults.edit'), edit_subject_detail_path(subject_detail), class: 'btn btn-default edit-btn my-1 mx-1' %>
+      <%= link_to t('defaults.delete'), subject_detail_path(subject_detail), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.confirm_delete') }, class: 'btn btn-default del-btn my-1 mx-1' %>
     </div>
   </td>
 </tr>

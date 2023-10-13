@@ -31,6 +31,7 @@
             <% end %>
 
             <p class="label-text required mb-2"><%= t('.user_remind_settings_title') %></p>
+            <p><%= t('.remind_attention') %></p>
 
             <%= f.fields_for :user_setting, @user_setting do |s_f| %>
               <%= render 'shared/error_messages', object: s_f.object %>
