@@ -64,6 +64,7 @@ ja:
       review_number_label: '回目'
       review_days_label: '日後'
       user_remind_settings_title: 'リマインド通知'
+      remind_attention: '※LINE通知を受け取る場合はユーザーメニューからLINE連携を行ってください。'
       receive_label: '受け取る'
       not_receive_label: '受け取らない'
       placeholder:

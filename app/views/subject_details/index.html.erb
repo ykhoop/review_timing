@@ -4,9 +4,14 @@
     <div class="row">
       <div class="col-12 text-center">
         <h3 class="title-text"><%= t('.title') %></h3>
-        <div class="text-end me-3">
-          <%= link_to t('defaults.back'), subjects_path, class: 'btn back-btn my-1 mx-1' %>
-          <%= link_to t('defaults.add'), new_subject_subject_detail_path(@subject), class: 'btn btn-default new-btn' %>
+        <div class="d-flex justify-content-between">
+          <div class="text-start ms-3 pt-3">
+            <h5 class="title-text"><%= "#{Subject.human_attribute_name(:title)}:" + @subject.title %></h5>
+          </div>
+          <div class="text-end me-3">
+            <%= link_to t('defaults.back'), subjects_path, class: 'btn back-btn my-1 mx-1' %>
+            <%= link_to t('defaults.add'), new_subject_subject_detail_path(@subject), class: 'btn btn-default new-btn' %>
+          </div>
         </div>
         <div class="table-responsive">
           <table class="schedule-table table bg-light table-hover">
