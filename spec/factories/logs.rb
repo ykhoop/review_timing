@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :log do
-    log_level { 1 }
-    program { "MyString" }
-    log_content { "MyText" }
+    log_level { :debug }
+    program { 'Program' }
+    log_content { 'Processing starts' }
   end
 end

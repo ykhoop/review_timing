@@ -111,14 +111,27 @@ RSpec.describe 'UserSettings', type: :system do
           end
         end
 
-        context '0の場合' do
+        context '-1の場合' do
           it '更新されないこと' do
+            4.times do |i|
+              review_days = [51, 52, 53, 54]
+              review_days[i] = -1
+              update_user_setting(review_days, 'mail_receive', 'line_receive')
+
+              assert_values(user, old_review_days, user_setting.mail_receive?, user_setting.line_receive?)
+            end
+          end
+        end
+
+        context '0の場合' do
+          it '更新されること' do
             4.times do |i|
               review_days = [51, 52, 53, 54]
               review_days[i] = 0
               update_user_setting(review_days, 'mail_receive', 'line_receive')
 
-              assert_values(user, old_review_days, user_setting.mail_receive?, user_setting.line_receive?)
+              expect(page).to have_content 'ユーザー設定を更新しました'
+              assert_values(user, review_days, true, true)
             end
           end
         end

@@ -143,5 +143,21 @@ RSpec.describe 'Signup', type: :system do
         end
       end
     end
+
+    context 'ユーザー登録数が最大数に達している場合' do
+      it 'ユーザー登録が失敗すること' do
+        5.times do |i|
+          create(:user, email: "test#{i + 1}@example")
+        end
+
+        visit new_user_path
+        set_fields(last_name, first_name, email, 'password')
+        click_button '登録'
+
+        expect(page).to have_content 'ユーザー登録数が上限に達しており、登録できません。お手数ですが、お問い合わせフォームよりご連絡ください。'
+        expect(User.find_by(email:)).to be_falsey
+        expect(current_path).to eq root_path
+      end
+    end
   end
 end

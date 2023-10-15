@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'SubjectDetails', type: :system do
   password = 'Password1'
   let!(:user) { create(:user, email: 'test@example.com', password:) }
+  let!(:user_setting) { create(:user_setting, user:) }
   let!(:user_review_settings) { create(:user_review_setting_with_additional_user_review_settings, user:) }
   let!(:subject) { create(:subject, user:, title: 'User科目') }
   let!(:subject_detail) { create(:subject_detail, subject:, chapter: 'User章') }
@@ -65,7 +66,7 @@ RSpec.describe 'SubjectDetails', type: :system do
       it '他のユーザーの科目詳細一覧にアクセスできないこと' do
         visit subject_subject_details_path(other_subject)
 
-        expect(page).to have_content 'ログインしてください'
+        expect(page).to have_content '強制ログアウトしました'
         expect(current_path).to eq login_path
       end
 
@@ -145,7 +146,7 @@ RSpec.describe 'SubjectDetails', type: :system do
       it '他のユーザーの科目詳細作成ページにアクセスできないこと' do
         visit new_subject_subject_detail_path(other_subject)
 
-        expect(page).to have_content 'ログインしてください'
+        expect(page).to have_content '強制ログアウトしました'
         expect(current_path).to eq login_path
       end
 
@@ -414,6 +415,31 @@ RSpec.describe 'SubjectDetails', type: :system do
               end
             end
           end
+
+          describe '科目詳細登録数' do
+            context '最大数に達している場合' do
+              it '科目詳細が追加されないこと' do
+                6.times do |i|
+                  create(:subject_detail, subject:, chapter: "test#{i + 1}科目詳細")
+                end
+
+                chapter = 'あ'
+                start_page = '1'
+                end_page = '1'
+                start_at = '2020-01-02T03:04'
+
+                visit new_subject_subject_detail_path(subject)
+                set_fields(chapter, start_page, end_page, start_at)
+                click_button '登録'
+
+                expect(page).to have_content '科目詳細数が上限に達しており、登録できません。お手数ですが、お問い合わせフォームよりご連絡ください。'
+                expect(current_path).to eq subject_subject_details_path(subject)
+
+                added_subject_detail = SubjectDetail.find_by(subject:, chapter:)
+                expect(added_subject_detail).to be_falsey
+              end
+            end
+          end
         end
 
         context '戻るボタンをクリックした場合' do
@@ -456,7 +482,7 @@ RSpec.describe 'SubjectDetails', type: :system do
       it '他のユーザーの科目詳細編集ページにアクセスできないこと' do
         visit edit_subject_detail_path(other_subject_detail)
 
-        expect(page).to have_content 'ログインしてください'
+        expect(page).to have_content '強制ログアウトしました'
         expect(current_path).to eq login_path
       end
 
@@ -767,7 +793,7 @@ RSpec.describe 'SubjectDetails', type: :system do
       it '他のユーザーの復習時間ページにアクセスできないこと' do
         visit review_time_subject_detail_path(other_subject_detail)
 
-        expect(page).to have_content 'ログインしてください'
+        expect(page).to have_content '強制ログアウトしました'
         expect(current_path).to eq login_path
       end
 

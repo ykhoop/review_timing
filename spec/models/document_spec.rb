@@ -26,7 +26,7 @@ RSpec.describe Document, type: :model do
       end
     end
 
-    context '説業がない場合' do
+    context '説明がない場合' do
       it 'ドキュメントを登録できない' do
         document = FactoryBot.build(:document, description: nil)
         expect(document).to be_invalid

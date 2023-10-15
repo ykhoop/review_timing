@@ -15,11 +15,6 @@ FactoryBot.define do
              code: 'top_explanation',
              description: 'トップページ説明',
              content: 'トップページ説明の内容')
-
-      create(:document,
-             code: 'top_process',
-             description: 'トップページ手順',
-             content: 'トップページ手順の内容')
     end
   end
 

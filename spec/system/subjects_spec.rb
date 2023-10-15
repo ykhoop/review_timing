@@ -78,9 +78,9 @@ RSpec.describe 'Subjects', type: :system do
           end
         end
 
-        context '詳細ボタンを押した場合' do
+        context '科目詳細ボタンを押した場合' do
           it '科目詳細ページに遷移すること' do
-            click_link '詳細', href: subject_subject_details_path(subject)
+            click_link '科目詳細', href: subject_subject_details_path(subject)
             page_title = find(:xpath, '//h3[text()="科目詳細一覧"]', wait: 10)
 
             expect(page_title).to be_truthy
@@ -238,6 +238,31 @@ RSpec.describe 'Subjects', type: :system do
               end
             end
           end
+
+          describe '科目登録数' do
+            context '最大数に達している場合' do
+              it '科目が追加されないこと' do
+                5.times do |i|
+                  create(:subject, user:, title: "test#{i + 1}科目")
+                end
+
+                title = 'あ'
+                start_at = '2020-01-02T03:04'
+                limit_at = '2021-02-03T04:05'
+                memo = 'あ'
+
+                visit new_subject_path
+                set_fields(title, start_at, limit_at, memo)
+                click_button '登録'
+
+                expect(page).to have_content '科目数が上限に達しており、登録できません。お手数ですが、お問い合わせフォームよりご連絡ください。'
+                expect(current_path).to eq subjects_path
+
+                added_subject = Subject.find_by(user:, title:)
+                expect(added_subject).to be_falsey
+              end
+            end
+          end
         end
 
         context '戻るボタンをクリックした場合' do
@@ -289,7 +314,7 @@ RSpec.describe 'Subjects', type: :system do
       it '他のユーザーの科目編集が表示されないこと' do
         visit edit_subject_path(other_subject)
 
-        expect(page).to have_content 'ログインしてください'
+        expect(page).to have_content '強制ログアウトしました'
       end
 
       describe '更新' do
