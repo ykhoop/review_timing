@@ -1,6 +1,7 @@
 class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: %i[show edit update destroy]
   before_action :set_users_menu_active, only: %i[index show edit]
+  after_action :log_exec_to_db, only: %i[index show edit update destroy]
 
   def index
     @q = User.ransack(params[:q])
@@ -25,7 +26,6 @@ class Admin::UsersController < Admin::BaseController
     redirect_to admin_users_path, success: t('.success', item: @user.email)
   end
 
-
   private
 
   def set_users_menu_active
@@ -41,7 +41,7 @@ class Admin::UsersController < Admin::BaseController
       :email,
       :first_name,
       :last_name,
-      :role,
+      :role
     )
   end
 end

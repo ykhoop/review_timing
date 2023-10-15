@@ -25,11 +25,11 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-    @subject || logout && redirect_to(login_path, warning: t('defaults.message.require_login')) && return
+    @subject || logout && redirect_to(login_path, warning: t('defaults.message.force_logout')) && return
   end
 
   def update
-    @subject || logout && redirect_to(login_path, warning: t('defaults.message.require_login')) && return
+    @subject || logout && redirect_to(login_path, warning: t('defaults.message.force_logout')) && return
     if @subject.update(subject_params)
       redirect_to subjects_path, success: t('.success')
     else
@@ -39,7 +39,7 @@ class SubjectsController < ApplicationController
   end
 
   def destroy
-    @subject || logout && redirect_to(login_path, warning: t('defaults.message.require_login')) && return
+    @subject || logout && redirect_to(login_path, warning: t('defaults.message.force_logout')) && return
     @subject.destroy!
     redirect_to subjects_path, success: t('.success', item: @subject.title)
   end

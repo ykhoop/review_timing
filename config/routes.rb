@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       get 'user_setting', to: 'user_settings#edit'
       patch 'update_user_setting', to: 'user_settings#update'
       get 'review_schedule/:ym', to: 'review_schedule#schedule', as: 'review_schedule'
-      post "oauth/callback", to: "authentications#callback"
       get "oauth/callback", to: "authentications#callback"
       get "oauth/:provider", to: "authentications#oauth", as: :oauth_at_provider
       delete "oauth/:provider", to: "authentications#destroy"
