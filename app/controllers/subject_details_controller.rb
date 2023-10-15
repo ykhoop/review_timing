@@ -17,13 +17,18 @@ class SubjectDetailsController < ApplicationController
     end
 
     @subject_detail = SubjectDetail.new(subject_detail_params)
-    if @subject_detail.save
-      SubjectReview.create_reviews!(@subject_detail, current_user)
-      redirect_to subject_subject_details_path(@subject.id), success: t('.success')
-    else
-      flash.now[:danger] = t('.fail')
-      render :new, status: :unprocessable_entity
+    ActiveRecord::Base.transaction do
+      if @subject_detail.save
+        SubjectReview.create_reviews!(@subject_detail, current_user)
+        redirect_to subject_subject_details_path(@subject.id), success: t('.success')
+      else
+        flash.now[:danger] = t('.fail')
+        render :new, status: :unprocessable_entity
+        raise ActiveRecord::Rollback
+      end
     end
+  rescue ActiveRecord::RecordInvalid => e
+    redirect_to subject_subject_details_path(@subject.id), danger: t('.fail')
   end
 
   def edit
@@ -63,20 +68,20 @@ class SubjectDetailsController < ApplicationController
 
   def set_subcject
     @subject = Subject.find(params[:subject_id])
-    unless current_user.own?(@subject)
-      logout
-      flash[:warning] = t ('defaults.message.require_login')
-      redirect_to login_path
-    end
+    return if current_user.own?(@subject)
+
+    logout
+    flash[:warning] = t('defaults.message.force_logout')
+    redirect_to login_path
   end
 
   def set_subcject_detail
     @subject_detail = SubjectDetail.find(params[:id])
-    unless current_user.own?(@subject_detail.subject)
-      logout
-      flash[:warning] = t ('defaults.message.require_login')
-      redirect_to login_path
-    end
+    return if current_user.own?(@subject_detail.subject)
+
+    logout
+    flash[:warning] = t('defaults.message.force_logout')
+    redirect_to login_path
   end
 
   def subject_detail_params

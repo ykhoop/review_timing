@@ -36,7 +36,7 @@ class PasswordsController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:current_passowrd, :password, :password_confirmation)
+    params.require(:user).permit(:current_password, :password, :password_confirmation)
   end
 
   def render_when_update_fail(err_msg = nil)

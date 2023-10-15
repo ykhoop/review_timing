@@ -1,5 +1,6 @@
 class Admin::SystemReviewSettingsController < Admin::BaseController
   before_action :set_system_review_settings_menu_active, only: %i[index]
+  after_action :log_exec_to_db, only: %i[index update_all]
 
   def index
     @system_review_settings = SystemReviewSetting.all.order(:review_number)
@@ -35,15 +36,15 @@ class Admin::SystemReviewSettingsController < Admin::BaseController
     ActiveRecord::Base.transaction do
       params[:system_review_setting].each do |id, system_review_setting_params|
         system_review_setting = SystemReviewSetting.find(id)
-        if !system_review_setting.update(system_review_setting_params.permit(:review_number, :review_days))
+        unless system_review_setting.update(system_review_setting_params.permit(:review_number, :review_days))
           err_system_review_setting = system_review_setting
           raise 'error'
         end
       end
     end
-    return true, nil
+    [true, nil]
   rescue StandardError
-    return false, err_system_review_setting
+    [false, err_system_review_setting]
   end
 
   def set_system_review_settings_menu_active

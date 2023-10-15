@@ -1,8 +1,8 @@
 require 'line/bot'
 
 class ReviewNotificationJob < ApplicationJob
+  TIME_ZONE_TO_DISPLAY = Rails.application.config.time_zone
   TIME_ZONE_OF_DB = 'UTC'
-  TIME_ZONE_TO_DISPLAY = 'Tokyo'
 
   def self.line_notification
     send_notification('line')
@@ -13,8 +13,10 @@ class ReviewNotificationJob < ApplicationJob
   end
 
   def self.send_notification(medium)
-    today = Date.today.midnight.in_time_zone(TIME_ZONE_OF_DB)
-    tomorrow = Date.tomorrow.midnight.in_time_zone(TIME_ZONE_OF_DB)
+    today = Time.zone.today.midnight
+    tomorrow = today.tomorrow.midnight
+    db_today = today.in_time_zone(TIME_ZONE_OF_DB)
+    db_tomorrow = tomorrow.in_time_zone(TIME_ZONE_OF_DB)
     interval = SystemSetting.notification_interval
     interval = interval.to_f / 1000
 
@@ -42,7 +44,7 @@ class ReviewNotificationJob < ApplicationJob
                                     , subject_reviews.review_number
                                   ')
                             .where(subject_reviews: { review_type: :plan })
-                            .where(subject_reviews: { review_at: today...tomorrow })
+                            .where(subject_reviews: { review_at: db_today...db_tomorrow })
 
                             case medium
                             when 'line'
@@ -71,10 +73,10 @@ class ReviewNotificationJob < ApplicationJob
           case medium
           when 'line'
             push_line(pre_uid, msg_text, interval)
-            save_db_log('send_notification', medium, pre_user_id, I18n.t('notifications.line_sent_message'))
+            save_db_log(__method__, medium, pre_user_id, I18n.t('notifications.line_sent_message'))
           when 'mail'
             send_mail(pre_email, msg_text, interval)
-            save_db_log('send_notification', medium, pre_user_id, I18n.t('notifications.mail_sent_message'))
+            save_db_log(__method__, medium, pre_user_id, I18n.t('notifications.mail_sent_message'))
           end
         end
 
@@ -88,7 +90,7 @@ class ReviewNotificationJob < ApplicationJob
       msg_text += "  #{I18n.t('notifications.page')}: #{notification_rec.start_page}〜#{notification_rec.end_page}\n"
       msg_text += "  #{I18n.t('notifications.start_date')}: #{notification_rec.start_at.in_time_zone(TIME_ZONE_TO_DISPLAY).strftime('%Y/%m/%d')}\n"
       msg_text += "  #{I18n.t('notifications.review_number')}: #{notification_rec.review_number}#{I18n.t('notifications.review_number_suffix')}\n"
-      msg_text += "  #{I18n.t('notifications.review_time')}: #{notification_rec.review_at.in_time_zone(TIME_ZONE_TO_DISPLAY).strftime('%H:%M')}\n"
+      msg_text += "  #{I18n.t('notifications.review_at')}: #{notification_rec.review_at.in_time_zone(TIME_ZONE_TO_DISPLAY).strftime('%Y/%m/%d %H:%M')}\n"
 
       pre_user_id = notification_rec.user_id
       pre_email = notification_rec.email
@@ -102,12 +104,12 @@ class ReviewNotificationJob < ApplicationJob
     if msg_text != ''
       # メッセージがある場合は最後のユーザーにメッセージを送信
       case medium
-      when 'line' then
+      when 'line'
         push_line(pre_uid, msg_text, interval)
-        save_db_log('send_notification', medium, pre_user_id, I18n.t('notifications.line_sent_message'))
-      when 'mail' then
+        save_db_log(__method__, medium, pre_user_id, I18n.t('notifications.line_sent_message'))
+      when 'mail'
         send_mail(pre_email, msg_text, interval)
-        save_db_log('send_notification', medium, pre_user_id, I18n.t('notifications.mail_sent_message'))
+        save_db_log(__method__, medium, pre_user_id, I18n.t('notifications.mail_sent_message'))
       end
     end
   end
@@ -135,7 +137,7 @@ class ReviewNotificationJob < ApplicationJob
 
   def self.save_db_log(method, medium, user_id, msg_text)
     log_level = :info
-    program = "ReviewNotificationJob.#{method}"
+    program = "#{self.name}.#{method}"
     log_content = "medium:#{medium},user_id:#{user_id},msg_text:#{msg_text}"
     Log.logger!(log_level, program, log_content)
   end

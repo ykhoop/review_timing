@@ -1,6 +1,6 @@
 class ReviewScheduleController < ApplicationController
+  TIME_ZONE_TO_DISPLAY = Rails.application.config.time_zone
   TIME_ZONE_OF_DB = 'UTC'
-  TIME_ZONE_TO_DISPLAY = 'Tokyo'
 
   def schedule
     ym = params[:ym]
@@ -11,13 +11,15 @@ class ReviewScheduleController < ApplicationController
     @prev_ym = ymd.prev_month.strftime('%Y%m')
     @next_ym = ymd.next_month.strftime('%Y%m')
 
-    start_date = ymd.beginning_of_month.in_time_zone(TIME_ZONE_OF_DB)
-    next_start_date = ymd.next_month.beginning_of_month.in_time_zone(TIME_ZONE_OF_DB)
+    start_date = ymd.beginning_of_month
+    next_start_date = ymd.next_month.beginning_of_month
+    db_start_date = start_date.in_time_zone(TIME_ZONE_OF_DB)
+    db_next_start_date = next_start_date.in_time_zone(TIME_ZONE_OF_DB)
     user_schedules_records = current_user.subjects.joins(subject_details: :subject_reviews)
                                          .where(subject_reviews: { review_type: 0 })
                                          .where('(subject_details.start_at >= ? AND subject_details.start_at < ?)
                                                   OR (subject_reviews.review_at >= ? AND subject_reviews.review_at < ?)',
-                                                start_date, next_start_date, start_date, next_start_date)
+                                                  db_start_date, db_next_start_date, db_start_date, db_next_start_date)
                                          .order('subjects.id
                                                   , subject_details.id
                                                   , subject_reviews.review_number')
