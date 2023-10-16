@@ -41,7 +41,7 @@
   * （ユーザーは復習予定日時をGoogleカレンダーに登録できる）
 
 * 管理ユーザー
-  * ユーザーの検索、一覧、詳細、登録、編集、削除
+  * ユーザーの検索、一覧、詳細、編集、削除
   * 一般ユーザーの学習内容の登録件数の一覧表示
   * 管理ユーザーが次回復習予定日時を自動決定する期間デフォルト値を設定できる
 
@@ -67,4 +67,4 @@ https://www.figma.com/file/ras7E1fDWebodv09yrNomi/review_timing?node-id=0%3A1&t=
 ### ■ ER図
 ***
 Gyazo:  
-[![Image from Gyazo](https://i.gyazo.com/04672d66d4bda9c3b6a1db2fb13b6bdf.png)](https://gyazo.com/04672d66d4bda9c3b6a1db2fb13b6bdf)
+[![Image from Gyazo](https://i.gyazo.com/e9dd9e447e206f16413f128bd66bcd51.png)](https://gyazo.com/e9dd9e447e206f16413f128bd66bcd51)
