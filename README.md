@@ -67,4 +67,15 @@ https://www.figma.com/file/ras7E1fDWebodv09yrNomi/review_timing?node-id=0%3A1&t=
 ### ■ ER図
 ***
 Gyazo:  
-[![Image from Gyazo](https://i.gyazo.com/e9dd9e447e206f16413f128bd66bcd51.png)](https://gyazo.com/e9dd9e447e206f16413f128bd66bcd51)
+[![Image from Gyazo](https://i.gyazo.com/1785667a7fc56f1ed8f9a56a1f9a4039.png)](https://gyazo.com/1785667a7fc56f1ed8f9a56a1f9a4039)
+
+### ■ 使用技術
+***
+- Ruby 3.2.1
+- Rails 7.0.4
+- Bootstrap 5.2.3
+- RSpec
+- LINE Login
+- LINE Messaging API
+- Heroku
+- MySQL
