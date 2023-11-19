@@ -15,7 +15,9 @@ class Admin::BaseController < ApplicationController
   end
 
   def log_exec_to_db
-    user_id = current_user ? current_user.id : 0
+    id_case_not_login = 0
+
+    user_id = current_user ? current_user.id : id_case_not_login
     log_level = :info
     program = "#{self.class.name}.#{action_name}"
     log_content = "user_id:#{user_id},msg_text:executed"
